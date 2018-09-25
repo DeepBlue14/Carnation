@@ -1,4 +1,4 @@
-# InetAndWeb18
+# Internet and Web Systems Fall 2018
 =====
 
 ### **Project Synopsis**
@@ -37,8 +37,10 @@ my classmates and Dr. Haim may have.
 
 
 ### **Install & Run**
-*TBA...*
-
+```
+npm install --save Carnation
+npm install pngjs --save
+```
 
 ### **Acknowledgements**
 This work is a class project guided by Dr. Haim Levkowitz.
