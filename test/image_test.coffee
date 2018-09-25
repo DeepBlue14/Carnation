@@ -3,7 +3,7 @@
 #
 ##
 
-Image = require './../src/core_msgs/Image.coffee'
+Image = require './../src/sensor_msgs/Image.coffee'
 
 img = new Image.Image('../res/james.png')
 

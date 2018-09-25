@@ -19,21 +19,20 @@ destination in a similar fashion.  The application will then use the
 universities floorplans to determine the most efficient way to traverse from
 the current location to to the goal location, and provide instructions.
 
-In essence, this is akin to an in-door version of Google Maps on a micro scale.
+**In essence, this is akin to an in-door version of Google Maps on a micro scale.**
 
 
-### **Implementation**
+### **Resources**
 **Floorplans**
 I have aquired a copy of the universities floor plans (with the
 exception of Dandeneau and Perry halls) from the facilities department.
 
-**Programming Language(s)**
-I am currently in the process of determining how best to implement this system.
-My original plan was to implement a server using Node.js.  However, I am
-considering switching to Ruby On Rails, since it appears to be slightly easier.
+**Design & Implementation Notes**
+The server-side is developed in CoffeeScript using Node.js.  The client-side
+is a combination of CoffeeScript, HTML, and CSS.
 
-I will continue researching these two options, and would appreciate any advice
-my classmates and Dr. Haim may have.
+Many of the data structures used where inspired by ROS (the Robot Operating
+System http://www.ros.org/).
 
 
 ### **Install & Run**
