@@ -1,6 +1,9 @@
 ##
+# File: Accel.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: Acceleration.
 #
-# 
+# Last modified: 10/01/2018
 ##
 
 Vector3 = require './Vector3.coffee'

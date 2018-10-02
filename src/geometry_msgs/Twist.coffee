@@ -1,6 +1,9 @@
 ##
+# File: Twist.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: Velocity description.
 #
-# 
+# Last modified: 10/01/2018
 ##
 
 Vector3 = require './Vector3.coffee'

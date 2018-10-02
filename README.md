@@ -1,9 +1,20 @@
-# Internet and Web Systems Fall 2018
+![Logo](https://github.com/DeepBlue14/Carnation/blob/master/res/marigold_icon.png)
+
+# Carnation -- Internet and Web Systems Fall 2018
+
+
+*Author/Maintainer:* James Kuczynski,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graduate Researcher,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Robotics Laboratory][1],  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[University of Massachusetts Lowell][2].  
+*Email:* jkuczyns@cs.uml.edu
+
 =====
 
 ### **Project Synopsis**
 This repository contains my project for graduate Internet and Web Systems I at
 UMass Lowell, taught by Dr. Haim Levkowitz.
+
 
 ### **Introduction**
 Those who have visited the University of Massachusetts Lowell North campus 
@@ -32,7 +43,7 @@ The server-side is developed in CoffeeScript using Node.js.  The client-side
 is a combination of CoffeeScript, HTML, and CSS.
 
 Many of the data structures used where inspired by ROS (the Robot Operating
-System http://www.ros.org/).
+System)[3].
 
 
 ### **Install & Run**
@@ -41,5 +52,15 @@ npm install --save Carnation
 npm install pngjs --save
 ```
 
+
 ### **Acknowledgements**
 This work is a class project guided by Dr. Haim Levkowitz.
+
+
+
+<!--links-->
+
+[1]: http://robotics.cs.uml.edu/
+[2]: http://www.uml.edu/
+[3]: http://www.ros.org/
+

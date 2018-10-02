@@ -16,8 +16,25 @@ class Image
     constructor: (filename) ->
         @data = fs.readFileSync(filename)
         @png  = PNG.sync.read(@data, filterType: -1)
-        @height = @png.height
-        @width = @png.width
+        @cols = @png.height
+        @rows = @png.width
+
+
+    at: (x, y) ->
+        #@data[]
+
+        #while y < @height
+        #    x = 0
+        #    while x < @width
+        #        idx = @width * y + x << 2
+        #        # invert color
+        #        @data[idx] = 255 - (@data[idx])
+        #        @data[idx + 1] = 255 - (@data[idx + 1])
+        #        @data[idx + 2] = 255 - (@data[idx + 2])
+        #        # and reduce opacity
+        #        @data[idx + 3] = @data[idx + 3] >> 1
+        #        x++
+        #    y++
 
 
     saveAsync: (filename) ->

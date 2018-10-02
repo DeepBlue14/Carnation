@@ -1,6 +1,9 @@
 ##
+# File: Vector3.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: Array with 3 indices.
 #
-# 
+# Last modified: 10/01/2018
 ##
 
 class Vector3

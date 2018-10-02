@@ -1,6 +1,9 @@
 ##
+# File: Pose.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: A pose in 3D space.
 #
-# 
+# Last modified: 10/01/2018
 ##
 
 Point      = require './Point.coffee'
