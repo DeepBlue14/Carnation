@@ -33,6 +33,11 @@ the current location to to the goal location, and provide instructions.
 **In essence, this is akin to an in-door version of Google Maps on a micro scale.**
 
 
+### **Access**
+
+You can access this project live using [this link to web site on weblab][4]
+
+
 ### **Resources**
 **Floorplans**
 I have aquired a copy of the universities floor plans (with the
@@ -63,4 +68,4 @@ This work is a class project guided by Dr. Haim Levkowitz.
 [1]: http://robotics.cs.uml.edu/
 [2]: http://www.uml.edu/
 [3]: http://www.ros.org/
-
+[4]: http://www.cs.uml.edu/~jkuczyns/
