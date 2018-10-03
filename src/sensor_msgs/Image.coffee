@@ -1,8 +1,9 @@
 ###
-#
-#
+# File: Image.coffee
+# Author: James Kuczynski
+# File Description: Contains the Image class.
 # Ref: https://github.com/lukeapage/pngjs/tree/master/examples
-#
+# Last Modified: 10/02/2018
 ###
 
 fs = require('fs')
@@ -35,6 +36,9 @@ class Image
         #        @data[idx + 3] = @data[idx + 3] >> 1
         #        x++
         #    y++
+        return @data[x, y]
+
+
 
 
     saveAsync: (filename) ->

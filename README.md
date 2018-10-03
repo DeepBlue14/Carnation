@@ -11,6 +11,7 @@
 
 =====
 
+
 ### **Project Synopsis**
 This repository contains my project for graduate Internet and Web Systems I at
 UMass Lowell, taught by Dr. Haim Levkowitz.
@@ -34,8 +35,7 @@ the current location to to the goal location, and provide instructions.
 
 
 ### **Access**
-
-You can access this project live using [this link to web site on weblab][4]
+You can access this project live using [this link to the web site on weblab][4]
 
 
 ### **Resources**
@@ -47,8 +47,7 @@ exception of Dandeneau and Perry halls) from the facilities department.
 The server-side is developed in CoffeeScript using Node.js.  The client-side
 is a combination of CoffeeScript, HTML, and CSS.
 
-Many of the data structures used where inspired by ROS (the Robot Operating
-System)[3].
+Many of the data structures used where inspired by [ROS][3].
 
 
 ### **Install & Run**
