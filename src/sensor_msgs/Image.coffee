@@ -36,9 +36,17 @@ class Image
         #        @data[idx + 3] = @data[idx + 3] >> 1
         #        x++
         #    y++
-        return @data[x, y]
+        return @data[index2OneD(x, y)]
 
 
+    index2OneD: (x, y) ->
+        return x + @width*y
+
+
+    index2TwoD: (i) ->
+        xy = [{x: i % @width},
+              {y: i / @width}]
+        return xy
 
 
     saveAsync: (filename) ->
@@ -48,6 +56,8 @@ class Image
         # https://github.com/lukeapage/pngjs/blob/master/examples/newfile.js
 
 
+    toString: ->
+        return 'Method stub'
 
 
 
