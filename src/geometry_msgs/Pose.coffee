@@ -1,5 +1,5 @@
 ##
-# File: Pose.coffee
+# File:   Pose.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A pose in 3D space.
 #

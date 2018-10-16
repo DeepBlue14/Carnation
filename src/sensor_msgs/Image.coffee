@@ -1,5 +1,5 @@
 ###
-# File: Image.coffee
+# File:   Image.coffee
 # Author: James Kuczynski
 # File Description: Contains the Image class.
 # Ref: https://github.com/lukeapage/pngjs/tree/master/examples

@@ -1,5 +1,9 @@
 ##
+# File:   AstarSearch.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: A-star (A*) search algorithm
 #
+# Last Modified: 10/16/2018
 #
 ##
 

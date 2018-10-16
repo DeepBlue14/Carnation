@@ -1,3 +1,13 @@
+##########################################################################
+##
+## File: server.coffee
+## Author: James Kuczynski <jkuczyns@cs.uml.edu>
+## File Description: Nodejs server written in coffeescript
+##
+## Last Modified: 10/16/2018
+##
+##########################################################################
+
 http = require 'http'
 fs   = require 'fs'
 

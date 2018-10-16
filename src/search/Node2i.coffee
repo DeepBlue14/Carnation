@@ -1,6 +1,7 @@
 ##
-#
-#
+# File: Node2i.coffee
+# Author: James Kuczynski <jkuczyns@cs.uml.edu>
+# File Description: 2D (x, y) point, i.e. pixel
 ##
 
 class Node2i

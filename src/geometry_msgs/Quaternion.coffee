@@ -1,5 +1,5 @@
 ##
-# File: Quaternion.coffee
+# File:   Quaternion.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A quaternion in 3D space.
 #

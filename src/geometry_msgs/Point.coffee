@@ -1,5 +1,5 @@
 ##
-# File: Point.coffee
+# File:   Point.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A point in 3D space.
 #

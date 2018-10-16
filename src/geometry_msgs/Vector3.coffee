@@ -1,5 +1,5 @@
 ##
-# File: Vector3.coffee
+# File:   Vector3.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: Array with 3 indices.
 #

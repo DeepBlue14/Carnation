@@ -1,5 +1,5 @@
 ##
-# File: Accel.coffee
+# File:   Accel.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: Acceleration.
 #
