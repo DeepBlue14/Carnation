@@ -7,10 +7,17 @@
 #
 ##
 
-class AstarSearch
+class AstarSearch extends SearchAbc
     @costmap
-    @startXy
-    @goalXy
+    @closedmap
+    @openmap
+    @canvas
+    @mask
+    @DOUBLE_MAX
+    @DOUBLE_MIN
+    @useDebugMode
+    @isFirstTime
+    @lastNode
 
     constructor: (@costmap, @startXy, @goalXy) ->
 
@@ -23,9 +30,36 @@ class AstarSearch
             console.log "(" + startXy.x + ", " + startXy.y + ") ==> (" + goalXy.x + ", " + goalXy.y + ")"
 
 
+    getMask: ->
+        #
 
 
+    displayImage: (windowName, image, useWaitKey, waitKey, x, y) ->
+        #
 
+
+    toString: ->
+        #
+
+
+    generateNode: (x, y, direction, channel, parent) ->
+        #
+
+
+    getSuccessors: (node) ->
+        #
+
+
+    display: (openLst, closedLst, start, goal) ->
+        #
+
+
+    display: (lastNode, openLst, closedLst, start, goal) ->
+        #
+
+
+    updateMask: (lastNode) ->
+        #
 
 
 

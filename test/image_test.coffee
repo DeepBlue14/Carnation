@@ -5,7 +5,7 @@
 
 Image = require './../src/sensor_msgs/Image.coffee'
 
-img = new Image.Image('../res/james.png')
+img = new Image.Image('../res/image/james.png')
 
 console.log '@height ' + img.png.height + ' @width ' + img.png.width
 ###
