@@ -11,8 +11,8 @@ class AstarSearch extends SearchAbc
     @costmap
     @closedmap
     @openmap
-    @canvas
-    @mask
+    @scanvas
+    @smask
     @DOUBLE_MAX
     @DOUBLE_MIN
     @useDebugMode
@@ -31,7 +31,7 @@ class AstarSearch extends SearchAbc
 
 
     getMask: ->
-        #
+        return @smask
 
 
     displayImage: (windowName, image, useWaitKey, waitKey, x, y) ->
@@ -39,11 +39,24 @@ class AstarSearch extends SearchAbc
 
 
     toString: ->
-        #
+        str = '--------AstarSearch--------'
+        str.append('\nnodes:=' + lastNode.childCount)
+        str.append('\npixel cost:=' + lastNode.pixSum)
+        str.append('\nnorth:=' + lastNode.twist.nCout)
+        str.append('\nsouth:=' + lastNode.twist.sCount)
+        str.append('\neast:=' + lastNode.twist.eCount)
+        str.append('\nwest:=' + lastNode.twist.wCount)
+        str.append('\nnorth-east:=' + lastNode.twist.neCount)
+        str.append('\nnorth-west:=' + lastNode.twist.nwCount)
+        str.append('\nsouth-east:=' + lastNode.twist.seCount)
+        str.append('\nsouth-west:=' + lastNode.twist.swCount)
+        str.append('\n---------------------------\\n')
+
+        return str
 
 
     generateNode: (x, y, direction, channel, parent) ->
-        #
+        node = SearchNode(x, y, direction, channel, parent)
 
 
     getSuccessors: (node) ->
