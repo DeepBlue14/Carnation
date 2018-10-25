@@ -57,10 +57,33 @@ class AstarSearch extends SearchAbc
 
     generateNode: (x, y, direction, channel, parent) ->
         node = SearchNode(x, y, direction, channel, parent)
+        node.pix = @costmap.at(x, y)[channel] / 10
+        if parent is null
+            node.pixSum = node.pix
+        else if parent.pixSum + node.pix < DOUBLE_MAX-1
+            node.pixSum = parent.pixSum + node.pix
+        else
+            ndoe.pixSum = DOUBLE_MAX-10
+
+        return node
 
 
     getSuccessors: (node) ->
-        #
+        for i in [0...successorLst.size]
+            successorLst[i].g = q.g + calcLinearDistance(successorLst[i], q)
+            successorLst[i].h = calcManhattenDistance(successorLst[i], goal)
+            successorLst[i].f = successorLst[i].g + successorLst[i].h + successorLst[i].pixSum
+
+            if successorLst[i].x is goal.x && successorLst[i].y is goal.y
+                lastNode = successorLst[i].clone()
+                if @useDebugMode
+                    console.log('Found goal -- Bye!')
+                    console.log(toString() )
+                    #displayPath(successorLst[i])
+
+            updateMask(lastNode)
+
+            #TODO: openLst
 
 
     display: (openLst, closedLst, start, goal) ->
