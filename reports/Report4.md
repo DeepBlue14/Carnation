@@ -1,8 +1,8 @@
-# Week #4
+# Report #4
 =====
 
 ### **Progress Report**
-This week, I primarily worked on client-side implementation.  Here are a few highlights:
+I primarily worked on client-side implementation.  Here are a few highlights:
 
 **HTML/CSS**
 I created a number of HTML/CSS files to get the client-side general structure

@@ -1,8 +1,8 @@
-# Week #3
+# Report #3
 =====
 
 ### **Progress Report**
-This week, I began implementation.  Here are a few highlights:
+I began implementation.  Here are a few highlights:
 
 **Image Matrix Manipulation**
 I found the Node.js library **pngjs**, an API for manipulating images on a
