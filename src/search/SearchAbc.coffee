@@ -1,16 +1,21 @@
-##
+##########################################################################
 # File:   AstarSearch.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
-# File Description: A-star (A*) search algorithm
+# File Description: Abstract base class for search algorithms.
 #
-# Last Modified: 10/22/2018
+# Last Modified: 11/01/2018
 #
-##
+##########################################################################
 
 class SearchAbc
     @MAGIC_NUM_1
     @MAGIC_NUM_2
 
+###
+# Initialize the class
+# @param MAGIC_NUM_1: Constant used in the heuristic
+# @param MAGIC_NUM_2: Constant used in the heuristic
+###
     constructor: (@MAGIC_NUM_1, @MAGIC_NUM_2) ->
 
 

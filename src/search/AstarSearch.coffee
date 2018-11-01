@@ -3,7 +3,7 @@
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A-star (A*) search algorithm
 #
-# Last Modified: 10/16/2018
+# Last Modified: 11/01/2018
 #
 ##
 
@@ -19,6 +19,12 @@ class AstarSearch extends SearchAbc
     @isFirstTime
     @lastNode
 
+    ###
+    # Initialize the search
+    # @param costmap: The costmap for a given raster
+    # @param startXy: The start position (no orientation)
+    # @param goalXy: The goal position (no orientation) 
+    ###
     constructor: (@costmap, @startXy, @goalXy) ->
 
 
