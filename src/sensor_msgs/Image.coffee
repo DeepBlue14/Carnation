@@ -39,6 +39,11 @@ class Image
         return @data[index2OneD(x, y)]
 
 
+    # check of a pixel is free space or if it is "closed" space (i.e. part of a wall or other obstacle)
+    isFreeSpace: (x, y) ->
+        #TODO: implement
+        return true
+
     index2OneD: (x, y) ->
         return x + @width*y
 
