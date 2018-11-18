@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<!--
+!
+! File:   loading.html
+! Author: James Kuczynski
+! File Description: Loading screen while an optimal path is being planned.
+!
+! Last Modified: 11/17/2018
+!
+-->
+
+<html lang="en">
+<head>
+    <title>Carnation</title>
+    <link rel="shortcut icon" href="../res/image/letter.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Include the Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Include JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Include Three.js libraries -->
+    <script src="../node_modules/three.js/three.js"></script>
+    <script src="../node_modules/three.js/Detector.js"></script>
+    <script src="../node_modules/three.js/CanvasRenderer.js"></script>
+    <script src="../node_modules/three.js/Projector.js"></script>
+
+    <!-- Include Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Include my scripts -->
+    <script src="../src/client.js"></script>
+    <script src="../src/cube_animation.js"></script>
+</head>
+<body> <!-- style="background:url('res/image/space1.jpg')" -->
+
+<div class="jumbotron text-center">
+    <h1>Carnation</h1>
+    <!-- Replaced line below with 3D stuff -->
+    <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
+    <div class="col-sm" id="WebGLCanvas">
+        <script>
+            run_cube_animation()
+        </script>
+    </div>
+    <p>Path-planning with a known map</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Loading...</h3>
+            <style>
+                .loader
+                {
+                    margin-left: 45%;
+                    border: 12px solid #f3f3f3;
+                    border-radius: 50%;
+                    border-top: 12px solid blue;
+                    border-right: 12px solid green;
+                    border-bottom: 12px solid red;
+                    border-left: 12px solid yellow;
+                    width: 75px;
+                    height: 75px;
+                    -webkit-animation: spin 2s linear infinite;
+                    animation: spin 2s linear infinite;
+                }
+
+                @-webkit-keyframes spin
+                {
+                    0%
+                    {
+                        -webkit-transform: rotate(0deg);
+                    }
+                    100%
+                    {
+                        -webkit-transform: rotate(360deg);
+                    }
+                }
+
+                @keyframes spin
+                {
+                    0%
+                    {
+                        transform: rotate(0deg);
+                    }
+                    100%
+                    {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+            <div class="loader"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

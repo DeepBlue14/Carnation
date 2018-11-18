@@ -4,9 +4,9 @@
 !
 ! File:   index.html
 ! Author: James Kuczynski
-! File Description:
+! File Description: Start page
 !
-! Last Modified: 11/12/2018
+! Last Modified: 11/17/2018
 !
 -->
 
@@ -16,14 +16,36 @@
         <link rel="shortcut icon" href="res/image/letter.jpg"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Include the Bootstrap stylesheet -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Include JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Include Three.js libraries -->
+        <script src="node_modules/three.js/three.js"></script>
+        <script src="node_modules/three.js/Detector.js"></script>
+        <script src="node_modules/three.js/CanvasRenderer.js"></script>
+        <script src="node_modules/three.js/Projector.js"></script>
+
+        <!-- Include Bootstrap -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Include my scripts -->
+        <script src="src/client.js"></script>
+        <script src="src/cube_animation.js"></script>
     </head>
-    <body>
+    <body> <!-- style="background:url('res/image/space1.jpg')" -->
 
         <div class="jumbotron text-center">
             <h1>Carnation</h1>
+            <!-- Replaced line below with 3D stuff -->
+            <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
+            <div class="col-sm" id="WebGLCanvas">
+                <script>
+                    run_cube_animation()
+                </script>
+            </div>
             <p>Path-planning with a known map</p>
         </div>
 
@@ -89,8 +111,13 @@
                 </div>
                 <div class="col-sm-4">
                     <h3>Go!</h3>
-                    <p>Start searching...</p>
-                    <button type="submit" form="form1" value="Submit">Submit</button>
+                    <form action="html/loading.html" onsubmit="main()">
+                        <input type="checkbox" name="option1" value="stairs">Avoid stairs<br>
+                        <input type="checkbox" name="option2" value="elevators">Avoid elevators<br>
+                        <input type="checkbox" name="option3" value="outdoors">Avoid outdoors<br>
+                        <input type="checkbox" name="option4" value="simulation" checked>Display simulation<br><br>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
             </div>
         </div>
