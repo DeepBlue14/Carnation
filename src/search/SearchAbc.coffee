@@ -11,11 +11,11 @@ class SearchAbc
     @MAGIC_NUM_1
     @MAGIC_NUM_2
 
-###
-# Initialize the class
-# @param MAGIC_NUM_1: Constant used in the heuristic
-# @param MAGIC_NUM_2: Constant used in the heuristic
-###
+    ###
+    # Initialize the class
+    # @param MAGIC_NUM_1: Constant used in the heuristic
+    # @param MAGIC_NUM_2: Constant used in the heuristic
+    ###
     constructor: (@MAGIC_NUM_1, @MAGIC_NUM_2) ->
 
 
