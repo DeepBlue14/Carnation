@@ -34,10 +34,8 @@ the current location to to the goal location, and provide instructions.
 **In essence, this is akin to an in-door version of Google Maps on a micro scale.**
 
 
-
 ### **Access**
 You can access this project live using [this link to the web site on weblab][4]
-
 
 
 ### **Resources**
