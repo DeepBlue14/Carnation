@@ -3,7 +3,7 @@
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A-star (A*) search algorithm
 #
-# Last Modified: 11/01/2018
+# Last Modified: 11/21/2018
 #
 ##
 
@@ -18,6 +18,7 @@ class AstarSearch extends SearchAbc
     @useDebugMode
     @isFirstTime
     @lastNode
+
 
     ###
     # Initialize the search
@@ -37,11 +38,12 @@ class AstarSearch extends SearchAbc
 
 
     getMask: ->
+        # accessor for the mask
         return @smask
 
 
     displayImage: (windowName, image, useWaitKey, waitKey, x, y) ->
-        #
+        # display the current image
 
 
     toString: ->
@@ -93,11 +95,11 @@ class AstarSearch extends SearchAbc
 
 
     display: (openLst, closedLst, start, goal) ->
-        #
+        #display the result
 
 
     display: (lastNode, openLst, closedLst, start, goal) ->
-        #
+        #display the result
 
 
     updateMask: (lastNode) ->
