@@ -1,9 +1,9 @@
 ##
 # File:   SearchNode.coffee
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
-# File Description:
+# File Description: Node class for searching over a matrix (image)
 #
-# Last Modified: 10/16/2018
+# Last Modified: 11/21/2018
 #
 ##
 
