@@ -3,9 +3,10 @@
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: A-star (A*) search algorithm
 #
-# Last Modified: 11/21/2018
+# Last Modified: 11/22/2018
 #
 ##
+
 
 class AstarSearch extends SearchAbc
     @costmap
