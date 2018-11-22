@@ -3,7 +3,7 @@
 # Author: James Kuczynski <jkuczyns@cs.uml.edu>
 # File Description: Abstract base class for search algorithms.
 #
-# Last Modified: 11/21/2018
+# Last Modified: 11/01/2018
 #
 ##########################################################################
 
@@ -80,7 +80,6 @@ class SearchAbc
 
     display: (lastNode, openLst, closedLst, start, goal) ->
         #
-
 
 
 
