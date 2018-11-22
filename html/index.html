@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+File: index.html
+Author: James Kuczynski <jkuczyns@cs.uml.edu>
+File Description:
+
+Last Modified: 10/07/2018
+-->
+
+
+<html>
+    <head>
+        <title>James Kuczynski</title>
+        <link rel="shortcut icon" href="res/image/letter.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Include Three.js libraries --> 
+        <script src="node_modules/three.js/three.js"></script>
+        <script src="node_modules/three.js/Detector.js"></script>
+        <script src="node_modules/three.js/CanvasRenderer.js"></script>
+        <script src="node_modules/three.js/Projector.js"></script>
+    </head>
+    <body background="res/image/space1.jpg">
+        <!-- header -->
+        <div id="header">
+            <h2>James Kuczynski</h2>
+        </div>
+        <!-- Create navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="html/about_me.html">About Me</a></li>
+                <li><a href="html/projects.html">Projects</a></li>
+                <li class="sub">
+                    <a href="html/code.html">Code</a>
+                    <ul>
+                        <li class="sub">
+                            <a href="ros.html">ROS</a>
+                            <ul>
+                                <li><a href="html/ros1.html">ROS1</a></li>
+                                <li><a href="html/ros2.html">ROS2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="html/compiled.html">Compiled</a></li>
+                        <li><a href="html/interpreted.html">Interpreted</a></li>
+                        <li><a href="html/web_based.html">Web-Based</a></li>
+                        <li><a href="html/mobile.html">Mobile</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="recent">
+            <h2>Introduction</h2>
+            <!-- Replaced line below with 3D stuff -->
+            <!--<img id="james_code" width="200" height="200" src="res/james_code.png" alt="james_code"> -->
+            <div id="WebGLCanvas">
+                <script>
+                    var scene;
+                    var camera;
+
+                    // 3D rotation 
+                    var xRotation = 0.0;
+                    var yRotation = 0.0;
+                    var zRotation = 0.0;
+
+                    var cubeMesh;
+
+                    initializeScene();
+                    animateScene();
+
+                    function initializeScene()
+                    {
+                        if(Detector.webgl)
+                        {
+                            renderer = new THREE.WebGLRenderer({antialias: true});
+                        }
+                        else
+                        {
+                            renderer = new THREE.CanvasRenderer();
+                        }
+
+                        renderer.setClearColor(0x000000, 1);
+
+                        canvasWidth  = window.innerWidth / 4;
+                        canvasHeight = window.innerHeight / 4;
+
+                        renderer.setSize(canvasWidth, canvasHeight);
+                        document.getElementById("WebGLCanvas").appendChild(renderer.domElement);
+
+                        scene = new THREE.Scene();
+
+                        camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 1, 100);
+                        camera.position.set(0, 0, 10);
+                        camera.lookAt(scene.position);
+                        scene.add(camera);
+
+                        var boxGeometry = new THREE.BoxGeometry(3.0, 3.0, 3.0);
+                        var neheTexture = new THREE.ImageUtils.loadTexture("res/image/james2_3.png"/*"res/image/NeHe.jpg"*/);
+                        var boxMaterial = new THREE.MeshBasicMaterial({
+                            map: neheTexture,
+                            side: THREE.DoubleSide
+                        });
+
+                        boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+                        boxMesh.position.set(0.0, 0.0, 4.0);
+                        scene.add(boxMesh);
+                    }
+
+
+                    function animateScene()
+                    {
+                        // Increase the 3D rotation
+                        xRotation += 0.03;
+                        yRotation += 0.02;
+                        zRotation += 0.04;
+                        boxMesh.rotation.set(xRotation, yRotation, zRotation);
+
+                        requestAnimationFrame(animateScene);
+ 
+                        renderScene();
+                    }
+
+
+                    function renderScene()
+                    {
+                        renderer.render(scene, camera);
+                    }
+                </script>
+
+
+
+            </div>
+            <p>
+                Those who have visited the University of Massachusetts Lowell North campus 
+                may be impressed by the various styles and architectures which are encoumpased
+                by the many buildings, spanning from the 1930s to modern times.  However, one
+                might also rapidly become lost while trying to navigate the labyrinth of halls,
+                classrooms, and tunnels.
+            </p>
+            <p>
+                It is this problem which I propose to solve.  This project will consist of a
+                web app (post likely a HTML web page) in which a person can enter their, 
+                relative location on campus, e.g. "Dandeneau Hall, room 409", and a desired
+                destination in a similar fashion.  The application will then use the
+                universities floorplans to determine the most efficient way to traverse from
+                the current location to to the goal location, and provide instructions.
+            </p>
+            <p>
+                Feel free to send any critiques, constructive criticism, or bug
+                reports to me at jkuczyns@cs.uml.edu.
+            </p>
+            <p>
+                James Kuczynski<br>
+                Graduate Researcher<br>
+                University of Massachusetts Lowell<br>
+                Department of Computer Science<br>
+                Robotics Laboratory<br>
+            </p>
+        </div>
+        <div class="recent">
+            <h2>License</h2>
+            <p>
+                Copyright (c) 2018, James Kuczynski. All rights reserved.
+            </p>
+            <p>
+                Unauthorized redistribution or use of this software,
+                documentation, and resources via any medium is strictly
+                prohibited.
+            </p>
+            <p>
+                Proprietary and confidential.
+            </p>
+            <p>
+                The above copyright notice and this permission notice shall be included in
+                all copies or substantial portions of the Software.
+            </p>
+            <p>
+                This software is provided by the copyright holders and contributors "as is" and
+                any express or implied warranties, including, but not limited to, the implied
+                warranties of merchantability and fitness for a particular purpose are
+                disclaimed. In no event shall the copyright holder be liable for any direct,
+                indirect, incidental, special, exemplary, or consequential damages (including,
+                but not limited to, procurement of substitute goods or services; loss of use,
+                data, or profits; or business interruption) however caused and on any theory of
+                liability, whether in contract, strict liability, or tort (including negligence
+                or otherwise) arising in any way out of the use of this software, even if
+                advised of the possibility of such damage.
+            </p>
+            
+        </div>
+        
+        <div id="footer">
+            Copyright (C) 2018 James T. Kuczynski
+        </div>
+    </body>
+</html>
