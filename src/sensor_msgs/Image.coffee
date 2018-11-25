@@ -15,28 +15,46 @@ class Image
     @done = false
     
     constructor: (filename) ->
-        @data = fs.readFileSync(filename)
-        @png  = PNG.sync.read(@data, filterType: -1)
+        @dataf = fs.readFileSync(filename)
+        @png  = PNG.sync.read(@dataf, filterType: -1)
+        @data = @png.data
+        @width = @png.width
+        @height = @png.height
         @cols = @png.height
         @rows = @png.width
 
 
-    at: (x, y) ->
-        #@data[]
+    getAt: (x, y) ->
+        idx = this.index2OneD(x, y)
+        #color = [{r: @data[idx]},
+        #         {g: @data[idx+1]},
+        #         {b: @data[idx+2]},
+        #         {a: @data[idx+3]}]
+        color = {
+            r: @data[idx],
+            g: @data[idx+1],
+            b: @data[idx+2],
+            a: @data[idx+3]
+        }
+        return color
 
-        #while y < @height
-        #    x = 0
-        #    while x < @width
-        #        idx = @width * y + x << 2
-        #        # invert color
-        #        @data[idx] = 255 - (@data[idx])
-        #        @data[idx + 1] = 255 - (@data[idx + 1])
-        #        @data[idx + 2] = 255 - (@data[idx + 2])
-        #        # and reduce opacity
-        #        @data[idx + 3] = @data[idx + 3] >> 1
-        #        x++
-        #    y++
-        return @data[index2OneD(x, y)]
+
+    setAt1: (x, y, color) ->
+        idx = this.index2OneD(x, y)
+        @data[idx] = color.r
+        @data[idx+1] = color.g
+        @data[idx+2] = color.b
+        @data[idx+3] = color.a
+
+
+    setAt2: (x, y, r, g, b, a=255) ->
+        color = {
+            r: r,
+            g: g,
+            b: b,
+            a: a
+        }
+        this.setAt1(x, y, color)
 
 
     # check of a pixel is free space or if it is "closed" space (i.e. part of a wall or other obstacle)
@@ -45,20 +63,42 @@ class Image
         return true
 
     index2OneD: (x, y) ->
-        return x + @width*y
+        return (@width * y + x) << 2
 
 
     index2TwoD: (i) ->
-        xy = [{x: i % @width},
-              {y: i / @width}]
+        xy = {
+            x: i % @width,
+            y: i / @width
+        }
         return xy
 
 
     saveAsync: (filename) ->
-        @png.pack().pipe(fs.createWriteStream(filename)).on 'finish', ->
+        tmp = new PNG(
+            width: @png.width
+            height: @png.height
+            filterType: -1)
+        console.log(tmp.width + ", " + tmp.height)
+
+        y = 0
+        while y < tmp.height
+            x = 0
+            while x < tmp.width
+                idx = (tmp.width * y + x) << 2
+
+                tmp.data[idx]     = @data[idx]
+                tmp.data[idx + 1] = @data[idx + 1]
+                tmp.data[idx + 2] = @data[idx + 2]
+                tmp.data[idx + 3] = @data[idx + 3]
+                x++
+            y++
+        tmp.pack().pipe fs.createWriteStream(filename).on 'finish', ->
             console.log 'Written!'
             return
-        # https://github.com/lukeapage/pngjs/blob/master/examples/newfile.js
+        #@png.pack().pipe fs.createWriteStream(filename).on 'finish', ->
+        #    console.log 'Written!'
+        #    return
 
 
     toString: ->

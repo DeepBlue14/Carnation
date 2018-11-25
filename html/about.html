@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!--
+!
+! File:   about.html
+! Author: James Kuczynski
+! File Description: "about" page
+!
+! Last Modified: 11/24/2018
+!
+-->
+
+<html lang="en">
+    <head>
+        <title>Carnation</title>
+        <link rel="shortcut icon" href="../res/image/letter.jpg"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Include the Bootstrap stylesheet -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../css/darkly.css">
+
+        <!-- Include Three.js libraries -->
+        <script src="../node_modules/three.js/three.js"></script>
+        <script src="../node_modules/three.js/Detector.js"></script>
+        <script src="../node_modules/three.js/CanvasRenderer.js"></script>
+        <script src="../node_modules/three.js/Projector.js"></script>
+
+        <!-- Include JQuery -->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!-- Include Bootstrap -->
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Include jquery-validation -->
+        <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="../node_modules/jquery-validation/dist/additional-methods.min.js"></script>
+
+        <!-- Include my scripts -->
+        <script src="../src/client.js"></script>
+        <script src="../src/cube_animation.js"></script>
+    </head>
+    <body> <!-- style="background:url('res/image/space1.jpg')" -->
+
+        <div class="jumbotron text-center">
+            <h1>Carnation</h1>
+            <!-- Replaced line below with 3D stuff -->
+            <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
+            <div class="col-sm" id="WebGLCanvas">
+                <script>
+                    run_cube_animation("../")
+                </script>
+            </div>
+            <p>Path-planning with a known map</p>
+        </div>
+
+        <!-- Create navigation menu -->
+        <!-- Ref: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Carnation</a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- <p><img src="../res/image/marigold_icon.png" alt="Logo" /></p> -->
+                    <h1 id="carnationinternetandwebsystemsfall2018">Internet and Web Systems Fall 2018</h1>
+
+                    <p><em>Author/Maintainer:</em> James Kuczynski, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Graduate Researcher, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://robotics.cs.uml.edu/">Robotics Laboratory</a>, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.uml.edu/">University of Massachusetts Lowell</a>. <br />
+                        <em>Email:</em> jkuczyns@cs.uml.edu</p>
+
+
+                    <h3 id="projectsynopsis"><strong>Project Synopsis</strong></h3>
+
+                    <p>This repository contains my project for graduate Internet and Web Systems I at
+                        UMass Lowell, taught by Dr. Haim Levkowitz.</p>
+
+                    <h3 id="introduction"><strong>Introduction</strong></h3>
+
+                    <p>Those who have visited the University of Massachusetts Lowell North campus
+                        may be impressed by the various styles and architectures which are encompassed
+                        by the many buildings, spanning from the 1930s to modern times.  However, one
+                        might also rapidly become lost while trying to navigate the labyrinth of halls,
+                        classrooms, and tunnels.</p>
+
+                    <p>It is this problem which I propose to solve.  This project will consist of a
+                        web app (post likely a HTML web page) in which a person can enter their,
+                        relative location on campus, e.g. "Dandeneau Hall, room 409", and a desired
+                        destination in a similar fashion.  The application will then use the
+                        universities floorplans to determine the most efficient way to traverse from
+                        the current location to to the goal location, and provide instructions.</p>
+
+                    <p><strong>In essence, this is akin to an in-door version of Google Maps on a micro scale.</strong></p>
+
+                    <h3 id="access"><strong>Access</strong></h3>
+
+                    <p>You can access this project live using <a href="http://www.cs.uml.edu/~jkuczyns/513_f2018/Carnation/index.html">this link to the web site on weblab</a></p>
+
+                    <h3 id="resources"><strong>Resources</strong></h3>
+
+                    <p><strong>Floorplans</strong>
+                        I have aquired a copy of the universities floor plans (with the
+                        exception of Dandeneau and Perry halls) from the facilities department.
+                    </p>
+
+                    <p><strong>Design &amp; Implementation Notes</strong>
+                        The server-side is developed in CoffeeScript using Node.js.  The client-side
+                        is a combination of CoffeeScript, HTML, and CSS.
+                    </p>
+
+                    <p>Many of the data structures used where inspired by <a href="http://www.ros.org/">ROS</a>.</p>
+
+                    <h3 id="installrun"><strong>Install &amp; Run</strong></h3>
+
+                    <pre>
+                        <code>
+                            npm install --save Carnation
+                            npm install pngjs --save
+                        </code>
+                    </pre>
+
+                    <h3 id="acknowledgements"><strong>Acknowledgements</strong></h3>
+
+                    <p>This work is a class project guided by Dr. Haim Levkowitz.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
