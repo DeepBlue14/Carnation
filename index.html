@@ -6,7 +6,7 @@
 ! Author: James Kuczynski
 ! File Description: Start page
 !
-! Last Modified: 11/17/2018
+! Last Modified: 11/24/2018
 !
 -->
 
@@ -18,9 +18,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Include the Bootstrap stylesheet -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- Include JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="css/darkly.css">
 
         <!-- Include Three.js libraries -->
         <script src="node_modules/three.js/three.js"></script>
@@ -28,16 +27,32 @@
         <script src="node_modules/three.js/CanvasRenderer.js"></script>
         <script src="node_modules/three.js/Projector.js"></script>
 
+        <!-- Include JQuery -->
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!-- Include Popper (for tooltips) -->
+        <script src="node_modules/popper/popper.min.js"></script>
+
         <!-- Include Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Include jquery-validation -->
+        <script src="node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="node_modules/jquery-validation/dist/additional-methods.min.js"></script>
 
         <!-- Include my scripts -->
         <script src="src/client.js"></script>
         <script src="src/cube_animation.js"></script>
+        <script src="src/index_validation.js"></script>
+        <!-- Make sure tooltip elements are initialized -->
+        <script>
+            $(function () {
+                $("[data-toggle='tooltip']").tooltip();
+            });
+        </script>
     </head>
-    <body> <!-- style="background:url('res/image/space1.jpg')" -->
-
-        <div class="jumbotron text-center">
+    <body style="background:url('res/image/space1.jpg')"> <!-- style="background:url('res/image/space1.jpg')" -->
+        <div class="text-center"> <!-- <div class="jumbotron text-center"> -->
             <h1>Carnation</h1>
             <!-- Replaced line below with 3D stuff -->
             <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
@@ -49,73 +64,113 @@
             <p>Path-planning with a known map</p>
         </div>
 
+        <!-- Create navigation menu -->
+        <!-- Ref: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Carnation</a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html/gallery.html">Gallery</a></li>
+                    <!--
+                    TODO: get this working
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="html/gallery.html">Gallery
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="html/gallery_north.html">North Campus</a></li>
+                            <li><a href="html/gallery_south.html">South Campus</a></li>
+                            <li><a href="html/gallery_east.html">East Campus</a></li>
+                            <li><a href="html/gallery_west.html">West Campus</a></li>
+                            <li><a href="html/gallery_low.html">Low Campus</a></li>
+                        </ul>
+                    </li>
+                    -->
+                    <li class="nav-item"><a class="nav-link" href="html/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="html/help.html">Help</a></li>
+                </ul>
+            </div>
+        </nav>
+
         <div class="container">
             <div class="row">
+
+                <!-- Start location -->
                 <div class="col-sm-4">
                     <h3>Start Location</h3>
                     <p>Building</p>
-                    <select>
-                        <option value="Alumni Hall">Alumni Hall</option>
-                        <option value="Ball Hall">Ball Hall</option>
-                        <option value="Costello Hall">Costello Hall</option>
-                        <option value="Cumnock Hall">Cumnock Hall</option>
-                        <option value="Falmouth Hall">Falmouth Hall</option>
-                        <option value="Grounds Garage">Grounds Garage</option>
-                        <option value="Kitson Hall">Kitson Hall</option>
-                        <option value="Lydon Library">Lydon Library</option>
-                        <option value="North Garage">North Garage</option>
-                        <option value="North Plan">North Plan</option>
-                        <option value="Olney Hall">Olney Hall</option>
-                        <option value="Olsen Hall">Olsen Hall</option>
-                        <option value="Pasteur Hall">Pasteur Hall</option>
-                        <option value="Perry Hall">Perry Hall</option>
-                        <option value="Pinanski Hall">Pinanski Hall</option>
-                        <option value="Pulichino Tong">Pulichino</option>
-                        <option value="Saab Tech">Saab Tech</option>
-                        <option value="Southwick Hall">Southwick Hall</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value="Alumni Hall">Alumni Hall</option>
+                            <option value="Ball Hall">Ball Hall</option>
+                            <option value="Costello Hall">Costello Hall</option>
+                            <option value="Cumnock Hall">Cumnock Hall</option>
+                            <option value="Falmouth Hall">Falmouth Hall</option>
+                            <option value="Grounds Garage">Grounds Garage</option>
+                            <option value="Kitson Hall">Kitson Hall</option>
+                            <option value="Lydon Library">Lydon Library</option>
+                            <option value="North Garage">North Garage</option>
+                            <option value="North Plan">North Plan</option>
+                            <option value="Olney Hall">Olney Hall</option>
+                            <option value="Olsen Hall">Olsen Hall</option>
+                            <option value="Pasteur Hall">Pasteur Hall</option>
+                            <option value="Perry Hall">Perry Hall</option>
+                            <option value="Pinanski Hall">Pinanski Hall</option>
+                            <option value="Pulichino Tong">Pulichino</option>
+                            <option value="Saab Tech">Saab Tech</option>
+                            <option value="Southwick Hall">Southwick Hall</option>
+                        </select>
+                    </label>
                     <input type="number" min="0" MAX="6" STEP="1" value="1" size="1">
-                    <form>
+                    <form name="start">
                         Room #:<br>
                         <input type="text" name="room_number">
                     </form>
                 </div>
+
+                <!-- Goal location -->
                 <div class="col-sm-4">
                     <h3>Goal Location</h3>
                     <p>Building</p>
-                    <select>
-                        <option value="Alumni Hall">Alumni Hall</option>
-                        <option value="Ball Hall">Ball Hall</option>
-                        <option value="Costello Hall">Costello Hall</option>
-                        <option value="Cumnock Hall">Cumnock Hall</option>
-                        <option value="Falmouth Hall">Falmouth Hall</option>
-                        <option value="Grounds Garage">Grounds Garage</option>
-                        <option value="Kitson Hall">Kitson Hall</option>
-                        <option value="Lydon Library">Lydon Library</option>
-                        <option value="North Garage">North Garage</option>
-                        <option value="North Plan">North Plan</option>
-                        <option value="Olney Hall">Olney Hall</option>
-                        <option value="Olsen Hall">Olsen Hall</option>
-                        <option value="Pasteur Hall">Pasteur Hall</option>
-                        <option value="Perry Hall">Perry Hall</option>
-                        <option value="Pinanski Hall">Pinanski Hall</option>
-                        <option value="Pulichino Tong">Pulichino</option>
-                        <option value="Saab Tech">Saab Tech</option>
-                        <option value="Southwick Hall">Southwick Hall</option>
-                    </select>
+                    <label>
+                        <select>
+                            <option value="Alumni Hall">Alumni Hall</option>
+                            <option value="Ball Hall">Ball Hall</option>
+                            <option value="Costello Hall">Costello Hall</option>
+                            <option value="Cumnock Hall">Cumnock Hall</option>
+                            <option value="Falmouth Hall">Falmouth Hall</option>
+                            <option value="Grounds Garage">Grounds Garage</option>
+                            <option value="Kitson Hall">Kitson Hall</option>
+                            <option value="Lydon Library">Lydon Library</option>
+                            <option value="North Garage">North Garage</option>
+                            <option value="North Plan">North Plan</option>
+                            <option value="Olney Hall">Olney Hall</option>
+                            <option value="Olsen Hall">Olsen Hall</option>
+                            <option value="Pasteur Hall">Pasteur Hall</option>
+                            <option value="Perry Hall">Perry Hall</option>
+                            <option value="Pinanski Hall">Pinanski Hall</option>
+                            <option value="Pulichino Tong">Pulichino</option>
+                            <option value="Saab Tech">Saab Tech</option>
+                            <option value="Southwick Hall">Southwick Hall</option>
+                        </select>
+                    </label>
                     <input type="number" min="0" max="6" step="1" value="1" size="1">
-                    <form>
+                    <form name="goal">
                         Room #:<br>
                         <input type="text" name="room_number">
                     </form>
                 </div>
+
+                <!-- Options and activation -->
                 <div class="col-sm-4">
                     <h3>Go!</h3>
                     <form action="html/loading.html" onsubmit="main()">
-                        <input type="checkbox" name="option1" value="stairs">Avoid stairs<br>
-                        <input type="checkbox" name="option2" value="elevators">Avoid elevators<br>
-                        <input type="checkbox" name="option3" value="outdoors">Avoid outdoors<br>
-                        <input type="checkbox" name="option4" value="simulation" checked>Display simulation<br><br>
+                        <input type="checkbox" name="option1" value="stairs" data-toggle='tooltip' data-placement='right' data-original-title="Don't use stairs" class='checkbox'>Avoid stairs<br>
+                        <input type="checkbox" name="option2" value="elevators" data-toggle='tooltip' data-placement='right' data-original-title="Don't use elevators" class='checkbox'>Avoid elevators<br>
+                        <input type="checkbox" name="option3" value="outdoors" data-toggle='tooltip' data-placement='right' data-original-title="Don't go outdoors" class='checkbox'>Avoid outdoors<br>
+                        <input type="checkbox" name="option4" value="simulation" data-toggle='tooltip' data-placement='right' data-original-title="Slower but more interesting" class='checkbox' checked>Display simulation<br><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>

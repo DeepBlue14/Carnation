@@ -1,4 +1,4 @@
-![Logo](https://github.com/DeepBlue14/Carnation/blob/master/res/marigold_icon.png)
+![Logo](https://github.com/DeepBlue14/Carnation/blob/master/res/image/marigold_icon.png)
 
 # Carnation -- Internet and Web Systems Fall 2018
 
@@ -19,7 +19,7 @@ UMass Lowell, taught by Dr. Haim Levkowitz.
 
 ### **Introduction**
 Those who have visited the University of Massachusetts Lowell North campus 
-may be impressed by the various styles and architectures which are encoumpased
+may be impressed by the various styles and architectures which are encompassed
 by the many buildings, spanning from the 1930s to modern times.  However, one
 might also rapidly become lost while trying to navigate the labyrinth of halls,
 classrooms, and tunnels.
