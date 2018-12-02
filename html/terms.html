@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!--
+!
+! File:   terms.html
+! Author: James Kuczynski
+! File Description: Terms of service page
+!
+! Ref: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2
+!
+! Last Modified: 12/01/2018
+!
+-->
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/terms.css">
+    </head>
+    <body>
+
+        <!-- Trigger/Open The Modal -->
+        <!-- <button id="myBtn">Open Modal</button> -->
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Terms of Service</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Copyright (c) 2018, James Kuczynski. All rights reserved.
+                    </p>
+                    <p>
+                        Unauthorized redistribution or use of this software, documentation, and
+                        resources via any medium is strictly prohibited.
+                    </p>
+                    <p>
+                        Proprietary and confidential.
+                    </p>
+                    <p>
+                        This software is provided by the copyright holders and contributors "as is" and
+                        any express or implied warranties, including, but not limited to, the implied
+                        warranties of merchantability and fitness for a particular purpose are
+                        disclaimed. In no event shall the copyright holder be liable for any direct,
+                        indirect, incidental, special, exemplary, or consequential damages (including,
+                        but not limited to, procurement of substitute goods or services; loss of use,
+                        data, or profits; or business interruption) however caused and on any theory of
+                        liability, whether in contract, strict liability, or tort (including negligence
+                        or otherwise) arising in any way out of the use of this software, even if
+                        advised of the possibility of such damage.
+                    </p>
+                    <p>By using our product you agree to allow the copyright holders to save input data
+                       including but not limited to names, email addresses, and other information via
+                       electronic or other means at their discretion.  This data may be shared with
+                       third parties for any reason or pretext unless otherwise contradicted by law.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <h3>By using our product you agree to our terms of service.</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            //btn.onclick = function()
+            //{
+                modal.style.display = "block";
+            //};
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function()
+            {
+                modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event)
+            {
+                if (event.target == modal)
+                {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
+</html>
