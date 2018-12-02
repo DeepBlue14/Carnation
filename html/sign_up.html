@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<!--
+!
+! File:   sign_in.html
+! Author: James Kuczynski
+! File Description: Sign-in page
+!
+! Last Modified: 12/01/2018
+!
+-->
+
+<html lang="en">
+    <head>
+        <title>Carnation</title>
+        <link rel="shortcut icon" href="../res/image/letter.jpg"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Include the Bootstrap stylesheet -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../css/darkly.css">
+
+        <!-- Include Three.js libraries -->
+        <script src="../node_modules/three.js/three.js"></script>
+        <script src="../node_modules/three.js/Detector.js"></script>
+        <script src="../node_modules/three.js/CanvasRenderer.js"></script>
+        <script src="../node_modules/three.js/Projector.js"></script>
+
+        <!-- Include JQuery -->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!-- Include Bootstrap -->
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Include jquery-validation -->
+        <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="../node_modules/jquery-validation/dist/additional-methods.min.js"></script>
+
+        <!-- SHA1 encryption -->
+        <!-- Ref: https://stackoverflow.com/questions/22257172/how-to-make-a-login-system-in-javascript -->
+        <script src="../node_modules/sha.js/sha1.js"></script>
+
+        <!-- Include my scripts -->
+        <script src="../src/client.js"></script>
+        <script src="../src/cube_animation.js"></script>
+    </head>
+    <body> <!-- style="background:url('res/image/space1.jpg')" -->
+        <div class="jumbotron text-center">
+            <h1>Carnation</h1>
+            <!-- Replaced line below with 3D stuff -->
+            <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
+            <div class="col-sm" id="WebGLCanvas">
+                <script>
+                    run_cube_animation("../")
+                </script>
+            </div>
+            <p>Path-planning with a known map</p>
+        </div>
+
+
+        <!-- Ref: https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
+        <div class="container col-sm-4">
+            <form class="modal-content align-items-center justify-content-center" action="/action_page.js">
+                <div class="row pb-4">
+                    <div class="col">
+                        <h2>Sign Up</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <label for="last"><b>Last name</b></label>
+                        <input type="text" class="form-control" placeholder="Last name" name="last" required>
+                    </div>
+                    <div class="col">
+                        <label for="first"><b>First name</b></label>
+                        <input type="text" class="form-control" placeholder="First name" name="first" required>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <label for="email"><b>Email</b></label><br>
+                        <input type="text" placeholder="Enter email address" name="email" required>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <label for="username"><b>Username</b></label><br>
+                        <input type="text" placeholder="Username" name="username" required>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <label for="psw"><b>Password</b></label>
+                        <a class="align-content-lg-end" href="requirements.html">(Requirements)</a><br><!-- TODO: add tab between label and a -->
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                        <br><!-- TODO: add tab between label and a -->
+                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    </div>
+                </div>
+
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Go!</button>
+                    </div>
+                </div>
+
+                <div class="row pb-4">
+                    <div class="col">
+                        <p>Already have an account? <a href="sign_in.html">Sign in</a>.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p><a href="terms.html">Terms</a></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="privacy.html">Privacy</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><a href="security.html">Security</a></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><a href="contact.html">Contact</a></p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+
+
+
+    </body>
+</html>

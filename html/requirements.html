@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<!--
+!
+! File:   sign_in.html
+! Author: James Kuczynski
+! File Description: Password requirements page
+!
+! Last Modified: 12/01/2018
+!
+-->
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/terms.css">
+    </head>
+    <body>
+
+        <!-- Trigger/Open The Modal -->
+        <!-- <button id="myBtn">Open Modal</button> -->
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Terms of Service</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Your password must contain 8-16 characters.  It must contain
+                        at least one capital letter, one lower-case letter, and one
+                        number.  It cannot contain any symbols.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <h3>By using our product you agree to our terms of service.</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            //btn.onclick = function()
+            //{
+            modal.style.display = "block";
+            //};
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function()
+            {
+                modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event)
+            {
+                if (event.target == modal)
+                {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+
+    </body>
+</html>

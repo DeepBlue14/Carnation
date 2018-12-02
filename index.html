@@ -45,8 +45,14 @@
         <script src="src/cube_animation.js"></script>
         <script src="src/index_validation.js"></script>
         <!-- Make sure tooltip elements are initialized -->
-        <script>
-            $(function () {
+        <script>function swap_start_building(value)
+        {
+            console.log("==>" + value)
+            //TODO: update imager
+        }
+
+        $(function ()
+        {
                 $("[data-toggle='tooltip']").tooltip();
             });
         </script>
@@ -102,7 +108,7 @@
                     <h3>Start Location</h3>
                     <p>Building</p>
                     <label>
-                        <select>
+                        <select onchange="swap_start_building(this.value)">
                             <option value="Alumni Hall">Alumni Hall</option>
                             <option value="Ball Hall">Ball Hall</option>
                             <option value="Costello Hall">Costello Hall</option>
@@ -123,7 +129,8 @@
                             <option value="Southwick Hall">Southwick Hall</option>
                         </select>
                     </label>
-                    <input type="number" min="0" MAX="6" STEP="1" value="1" size="1">
+                    <input type="number" min="0" MAX="6" STEP="1" value="1" size="1" readonly><br>
+                    <img name="building_start_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
                     <form name="start">
                         Room #:<br>
                         <input type="text" name="room_number">
@@ -156,7 +163,8 @@
                             <option value="Southwick Hall">Southwick Hall</option>
                         </select>
                     </label>
-                    <input type="number" min="0" max="6" step="1" value="1" size="1">
+                    <input type="number" min="0" max="6" step="1" value="1" size="1" readonly><br>
+                    <img name="building_goal_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
                     <form name="goal">
                         Room #:<br>
                         <input type="text" name="room_number">
