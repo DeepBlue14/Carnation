@@ -6,7 +6,7 @@
 ! Author: James Kuczynski
 ! File Description: Start page
 !
-! Last Modified: 11/24/2018
+! Last Modified: 12/02/2018
 !
 -->
 
@@ -26,6 +26,7 @@
         <script src="node_modules/three.js/Detector.js"></script>
         <script src="node_modules/three.js/CanvasRenderer.js"></script>
         <script src="node_modules/three.js/Projector.js"></script>
+        <script src="node_modules/three.js/stats.min.js"></script>
 
         <!-- Include JQuery -->
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -44,16 +45,18 @@
         <script src="src/client.js"></script>
         <script src="src/cube_animation.js"></script>
         <script src="src/index_validation.js"></script>
+        <script src="src/flip_image.js"></script>
         <!-- Make sure tooltip elements are initialized -->
-        <script>function swap_start_building(value)
-        {
-            console.log("==>" + value)
-            //TODO: update imager
-        }
+        <script>
+            function swap_start_building_old(value)
+            {
+                console.log("==>" + value)
+                //TODO: update imager
+            }
 
-        $(function ()
-        {
-                $("[data-toggle='tooltip']").tooltip();
+            $(function ()
+            {
+                    $("[data-toggle='tooltip']").tooltip();
             });
         </script>
     </head>
@@ -108,7 +111,7 @@
                     <h3>Start Location</h3>
                     <p>Building</p>
                     <label>
-                        <select onchange="swap_start_building(this.value)">
+                        <select id="start_location" onchange="flip_start_image(this)">
                             <option value="Alumni Hall">Alumni Hall</option>
                             <option value="Ball Hall">Ball Hall</option>
                             <option value="Costello Hall">Costello Hall</option>
@@ -118,22 +121,22 @@
                             <option value="Kitson Hall">Kitson Hall</option>
                             <option value="Lydon Library">Lydon Library</option>
                             <option value="North Garage">North Garage</option>
-                            <option value="North Plan">North Plan</option>
+                            <option value="North Plan">North Plant</option>
                             <option value="Olney Hall">Olney Hall</option>
                             <option value="Olsen Hall">Olsen Hall</option>
                             <option value="Pasteur Hall">Pasteur Hall</option>
                             <option value="Perry Hall">Perry Hall</option>
                             <option value="Pinanski Hall">Pinanski Hall</option>
-                            <option value="Pulichino Tong">Pulichino</option>
+                            <option value="Pulichino Tong">Pulichino Tong</option>
                             <option value="Saab Tech">Saab Tech</option>
                             <option value="Southwick Hall">Southwick Hall</option>
                         </select>
                     </label>
-                    <input type="number" min="0" MAX="6" STEP="1" value="1" size="1" readonly><br>
-                    <img name="building_start_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
+                    <input id="start_floor" type="number" min="0" MAX="6" STEP="1" value="1" size="1" style="width: 50px;"><br>
+                    <img id="start_location_img" name="building_start_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
                     <form name="start">
                         Room #:<br>
-                        <input type="text" name="room_number">
+                        <input id="start_room_number" type="text" name="room_number">
                     </form>
                 </div>
 
@@ -142,7 +145,7 @@
                     <h3>Goal Location</h3>
                     <p>Building</p>
                     <label>
-                        <select>
+                        <select id="goal_location" onchange="flip_goal_image(this)">
                             <option value="Alumni Hall">Alumni Hall</option>
                             <option value="Ball Hall">Ball Hall</option>
                             <option value="Costello Hall">Costello Hall</option>
@@ -152,37 +155,39 @@
                             <option value="Kitson Hall">Kitson Hall</option>
                             <option value="Lydon Library">Lydon Library</option>
                             <option value="North Garage">North Garage</option>
-                            <option value="North Plan">North Plan</option>
+                            <option value="North Plan">North Plant</option>
                             <option value="Olney Hall">Olney Hall</option>
                             <option value="Olsen Hall">Olsen Hall</option>
                             <option value="Pasteur Hall">Pasteur Hall</option>
                             <option value="Perry Hall">Perry Hall</option>
                             <option value="Pinanski Hall">Pinanski Hall</option>
-                            <option value="Pulichino Tong">Pulichino</option>
+                            <option value="Pulichino Tong">Pulichino Tong</option>
                             <option value="Saab Tech">Saab Tech</option>
                             <option value="Southwick Hall">Southwick Hall</option>
                         </select>
                     </label>
-                    <input type="number" min="0" max="6" step="1" value="1" size="1" readonly><br>
-                    <img name="building_goal_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
+                    <input id="goal_floor" type="number" min="0" max="6" step="1" value="1" size="1" style="width: 50px;"><br>
+                    <img  id="goal_location_img" name="building_goal_img" src="res/arc/UMassLowell/North/AlumniHall/alumni_hall.png" class="rounded" alt="Cinque Terre" width="165">
                     <form name="goal">
                         Room #:<br>
-                        <input type="text" name="room_number">
+                        <input id="goal_room_number" type="text" name="room_number">
                     </form>
                 </div>
 
                 <!-- Options and activation -->
                 <div class="col-sm-4">
                     <h3>Go!</h3>
-                    <form action="html/loading.html" onsubmit="main()">
+                    <form id="starter" onsubmit="return launch_search()" method="get" action="html/loading.html">
                         <input type="checkbox" name="option1" value="stairs" data-toggle='tooltip' data-placement='right' data-original-title="Don't use stairs" class='checkbox'>Avoid stairs<br>
                         <input type="checkbox" name="option2" value="elevators" data-toggle='tooltip' data-placement='right' data-original-title="Don't use elevators" class='checkbox'>Avoid elevators<br>
                         <input type="checkbox" name="option3" value="outdoors" data-toggle='tooltip' data-placement='right' data-original-title="Don't go outdoors" class='checkbox'>Avoid outdoors<br>
                         <input type="checkbox" name="option4" value="simulation" data-toggle='tooltip' data-placement='right' data-original-title="Slower but more interesting" class='checkbox' checked>Display simulation<br><br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" class="btn btn-success" value="Submit">
                     </form>
                 </div>
             </div>
+
+            <!-- <script src="src/graphics.js"></script> -->
         </div>
     </body>
 </html>

@@ -1,10 +1,12 @@
 /* The Modal (background) */
-.modal
+.modal.popup
 {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     left: 0;
     top: 0;
     width: 100%;
@@ -17,12 +19,6 @@
 /* Modal Content */
 .modal-content
 {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -44,7 +40,7 @@
 }
 
 /* The Close Button */
-.close
+.close.popup
 {
     color: white;
     float: right;
@@ -52,24 +48,24 @@
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus
+.close:hover.popup,
+.close:focus.popup
 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.modal-header
+.modal-header.popup
 {
     padding: 2px 16px;
     background-color: #2F4F4F;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body.popup {padding: 2px 16px;}
 
-.modal-footer
+.modal-footer.popup
 {
     padding: 2px 16px;
     background-color: #2F4F4F;
