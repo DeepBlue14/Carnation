@@ -60,7 +60,6 @@ npm install pngjs --save
 ### **Acknowledgements**
 This work is a class project guided by Dr. Haim Levkowitz.
 
-.
 
 <!--links-->
 
