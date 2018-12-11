@@ -1,0 +1,4 @@
+{"users": [{"firstName":"Jerry","lastName":"Negrell","email":"jerry@bah.com","username":"acadia","password":"asdf1" },
+           {"firstName":"Ed","lastName":"Snide","email":"edward@bah.com","username":"hokuyo","password":"asdf2" }
+    ]
+}

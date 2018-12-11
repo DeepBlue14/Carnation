@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "twist_test.js",
+  "sourceRoot": "",
+  "sources": [
+    "twist_test.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAKA;AAAA,MAAA;;EAAA,IAAA,GAAO,OAAA,CAAQ,oCAAR;;EAIP,IAAA,GAAW,IAAA,IAAI,CAAC,IAAL,CAAU,GAAV,EAAe,GAAf,EAAoB,GAApB,EAAyB,IAAzB,EAA+B,IAA/B,EAAqC,IAArC,EAA2C,IAA3C;;EAEX,OAAO,CAAC,GAAR,CAAY,QAAA,GAAW,IAAI,CAAC,QAAQ,CAAC,CAArC;AANA"
+}

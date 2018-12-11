@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+        <title>Carnation</title>
+        <link rel="shortcut icon" href="../res/image/letter.jpg"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Include JQuery -->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+        <!-- pngjs -->
+        <script src="../node_modules/pngjs/bundle.js"></script>
+        
+        <!-- mine -->
+        <script src="../src/sensor_msgs/Image_client.js"></script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">Your browser does not support the HTML5 canvas tag.</canvas>
+        <button onclick="drawOnCanvas()">Click me</button>
+        <script>
+            //Ref: https://github.com/arian/pngjs/blob/master/html/index.html
+            var drawOnCanvas = function()
+            {
+                var image = new Image.Image('../res/image/james.png');
+                var canvas = document.getElementById('canvas');
+                var canvasWidth = canvas.width;
+                var canvasHeight = canvas.height;
+                var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+                var i = 0;
+                
+                var width  = Math.min(png.width, canvasWidth);
+                var height = Math.min(png.height, canvasHeight);
+                
+                for(var y = 0; y < height; y++)
+                {
+		            for(var x = 0; x < width; x++)
+		            {
+                        var colors = png.getPixel(x, y);
+                        canvasData.data[i++] = colors[0];
+                        canvasData.data[i++] = colors[1];
+                        canvasData.data[i++] = colors[2];
+                        canvasData.data[i++] = colors[3];
+		            }
+                    // move index to the next line
+                    var d = canvasWidth - width;
+                    if(d > 0) i += d * 4;
+                }
+                ctx.putImageData(canvasData, 0, 0);
+            }
+        </script>
+    </body>
+</html>
+
