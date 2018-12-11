@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "traffic_test.js",
+  "sourceRoot": "",
+  "sources": [
+    "traffic_test.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAKA;AAAA,MAAA;;EAAA,KAAA,GAAU,OAAA,CAAQ,mCAAR;;EACV,OAAA,GAAU,OAAA,CAAQ,+BAAR;;EAEV,GAAA,GAAU,IAAA,KAAK,CAAC,KAAN,CAAY,wBAAZ;;EAEV,OAAA,GAAc,IAAA,OAAO,CAAC,OAAR,CAAgB,GAAhB;;EACd,OAAO,CAAC,eAAR,CAAA;;AAEA,OAAS,0BAAT;IACI,OAAO,CAAC,aAAR,CAAA;IACA,OAAO,CAAC,GAAR,CAAY,OAAO,CAAC,QAAR,CAAA,CAAZ;AAFJ;AARA"
+}

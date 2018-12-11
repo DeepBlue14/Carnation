@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "image_test.js",
+  "sourceRoot": "",
+  "sources": [
+    "image_test.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAKA;AAAA,MAAA;;EAAA,KAAA,GAAQ,OAAA,CAAQ,mCAAR;;EACR,EAAA,GAAK,OAAA,CAAQ,IAAR;;EACL,GAAA,GAAM,OAAA,CAAQ,OAAR,CAAgB,CAAC;;EAEvB,GAAA,GAAU,IAAA,KAAK,CAAC,KAAN,CAAY,wBAAZ;;EAEV,OAAO,CAAC,GAAR,CAAY,UAAA,GAAa,GAAG,CAAC,GAAG,CAAC,MAArB,GAA8B,UAA9B,GAA2C,GAAG,CAAC,GAAG,CAAC,KAA/D;;;AACA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EA8BA,IAAI,CAAC,IAAL,CAAA,CAAW,CAAC,MAAM,CAAC,iBAAnB,CAAqC,YAArC;AArCA"
+}
