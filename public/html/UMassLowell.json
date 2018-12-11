@@ -72,13 +72,13 @@
                     "name": "OlneyHall",
                     "image": "olney_hall.png",
                     "num_floors": 7, "floors": [
-                        {"0": "olney_hall_floor0.png"},
-                        {"1": "olney_hall_floor1.png"},
-                        {"2": "olney_hall_floor2.png"},
-                        {"3": "olney_hall_floor3.png"},
-                        {"4": "olney_hall_floor4.png"},
-                        {"5": "olney_hall_floor5.png"},
-                        {"6": "olney_hall_floor6.png"}]}, {
+                        {"res": "olney_hall_floor0.png"},
+                        {"res": "olney_hall_floor1.png"},
+                        {"res": "olney_hall_floor2.png"},
+                        {"res": "olney_hall_floor3.png"},
+                        {"res": "olney_hall_floor4.png"},
+                        {"res": "olney_hall_floor5.png"},
+                        {"res": "olney_hall_floor6.png"}]}, {
                     "name": "OlsenHall",
                     "image": "olsen_hall.png",
                     "num_floors": 8, "floors": [
@@ -91,19 +91,19 @@
                                                                    {"room": 0,   "x": 1000, "y": 250, "type": "elevator"},
                                                                    {"room": 0,   "x": 575,  "y": 675, "type": "stairs"},
                                                                    {"room": 0,   "x": 1440, "y": 675, "type": "stairs"}]},
-                        {"4": "olsen_hall_floor4.png"},
-                        {"5": "olsen_hall_floor5.png"},
-                        {"6": "olsen_hall_floor6.png"},
-                        {"7": "olsen_hall_floor7.png"}]}, {
+                        {"res": "olsen_hall_floor4.png"},
+                        {"res": "olsen_hall_floor5.png"},
+                        {"res": "olsen_hall_floor6.png"},
+                        {"res": "olsen_hall_floor7.png"}]}, {
                     "name": "PasteurHall",
                     "image": "pasteur_hall.png",
                     "num_floors": 5, "floors": [
-                        {"0": "pasteur_hall_floor0.png"},
-                        {"1": "pasteur_hall_floor1.png"},
-                        {"2": "pasteur_hall_floor2.png"},
-                        {"3": "pasteur_hall_floor3.png"},
-                        {"4": "pasteur_hall_floor4.png"},
-                        {"5": "pasteur_hall_floor5.png"}]}, {
+                        {"res": "pasteur_hall_floor0.png"},
+                        {"res": "pasteur_hall_floor1.png"},
+                        {"res": "pasteur_hall_floor2.png"},
+                        {"res": "pasteur_hall_floor3.png"},
+                        {"res": "pasteur_hall_floor4.png"},
+                        {"res": "pasteur_hall_floor5.png"}]}, {
                     "name": "PerryHall",
                     "image": "perry_hall.png",
                     "num_floors": 4, "floors": [
