@@ -47,16 +47,15 @@ class AstarSearch extends SearchAbc.SearchAbc
         start = new SearchNode.SearchNode(startXy.x, startXy.y, 0, 0, null)
         goal = new SearchNode.SearchNode(goalXy.x, goalXy.y, 0, 0, null)
         openLst.push(start)
-        @closedmap = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png')
+        @closedmap = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png')
         @closedmap.zeros()
-        @openmap = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png')
+        @openmap = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png')
         @openmap.zeros()
         @openmap.setAt2(start.x, start.y, start.f+1.0, start.f+1.0, start.f+1.0)
 
-        ###
+
         counter = 0
-        while(openLst.length > 0)
-            console.log "loop..."
+        while(openLst.length > 0 && counter++ < 400)
             q = new SearchNode.SearchNode()
             q = openLst.pop() #get last and remove
             @openmap.setAt2(q.x, q.y, 0.0, 0.0, 0.0)
@@ -64,7 +63,7 @@ class AstarSearch extends SearchAbc.SearchAbc
             console.log "(" + q.x + ", " + q.y + "): q.pixSum: " + q.pixSum + " q.pix: " + q.pix
             
             successorLst = this.getSuccessors(q)
-            console.log "looping \"for\" " + successorLst.length + " successors"
+            #console.log "looping \"for\" " + successorLst.length + " successors"
             for i in [0...successorLst.length]
                 successorLst[i].g = q.g + this.calcLinearDistance(successorLst[i], q)
                 successorLst[i].h = this.calcManhattenDistance(successorLst[i], goal)
@@ -108,16 +107,19 @@ class AstarSearch extends SearchAbc.SearchAbc
 
             successorLst = []    
         #end of while(...)
-        ###
 
+
+        ###
         fs = require('fs')
         obj = JSON.parse(fs.readFileSync('./path.json', 'utf8'))
         #console.log(obj)
         for idx, val of obj.path
             console.log val.y + ", " + val.x
             @costmap.setAt2(val.y, val.x, 100, 0, 100)
-
-        @costmap.saveAsync('my_path.png')
+        ###
+        @costmap.saveAsync('AAAcostmap.png')
+        @openmap.saveAsync('AAAopenmap.png')
+        @closedmap.saveAsync('AAAclosedmap.png')
 
     getMask: ->
         return @smask

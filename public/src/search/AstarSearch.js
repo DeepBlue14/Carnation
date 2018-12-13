@@ -51,7 +51,7 @@
     }
 
     AstarSearch.prototype.run = function(startXy, goalXy) {
-      var fs, goal, idx, obj, openLst, ref, start, val;
+      var counter, foundMatch, goal, i, j, lastNode, openLst, q, ref, start, successorLst;
       if (startXy.x < 0 || startXy.x >= this.costmap.cols || startXy.y < 0 || startXy.y > this.costmap.rows || goalXy.x < 0 || goalXy.x >= this.costmap.rows || goalXy.y < 0 || goalXy.y > this.costmap.cols) {
         console.log("ERROR: start or goal pos exeeds image bounds -- bye!");
         console.log("map (x, y): (" + this.costmap.rows + ", " + this.costmap.cols + ")");
@@ -62,77 +62,69 @@
       start = new SearchNode.SearchNode(startXy.x, startXy.y, 0, 0, null);
       goal = new SearchNode.SearchNode(goalXy.x, goalXy.y, 0, 0, null);
       openLst.push(start);
-      this.closedmap = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png');
+      this.closedmap = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png');
       this.closedmap.zeros();
-      this.openmap = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png');
+      this.openmap = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png');
       this.openmap.zeros();
       this.openmap.setAt2(start.x, start.y, start.f + 1.0, start.f + 1.0, start.f + 1.0);
+      counter = 0;
+      while (openLst.length > 0 && counter++ < 400) {
+        q = new SearchNode.SearchNode();
+        q = openLst.pop();
+        this.openmap.setAt2(q.x, q.y, 0.0, 0.0, 0.0);
+        console.log("(" + q.x + ", " + q.y + "): q.pixSum: " + q.pixSum + " q.pix: " + q.pix);
+        successorLst = this.getSuccessors(q);
+        for (i = j = 0, ref = successorLst.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
+          successorLst[i].g = q.g + this.calcLinearDistance(successorLst[i], q);
+          successorLst[i].h = this.calcManhattenDistance(successorLst[i], goal);
+          successorLst[i].f = successorLst[i].g + successorLst[i].h + successorLst[i].pixSum;
+          if (successorLst[i].x === goal.x && successorLst[i].y === goal.y) {
+            lastNode = successorLst[i].clone();
+            if (this.useDebugMode) {
+              console.log('Found goal -- Bye!');
+              console.log(toString());
+            }
+            this.updateMask(lastNode);
+            openLst = [];
+            return;
+          }
+          foundMatch = false;
+          if (this.openmap.getAt(successorLst[i].x, successorLst[i].y).r <= successorLst[i].f && this.openmap.getAt(successorLst[i].x, successorLst[i].y).r > 0.0) {
+            foundMatch = true;
+          }
+          if (foundMatch === false) {
+            if (this.closedmap.getAt(successorLst[i].x, successorLst[i].y).r <= successorLst[i].f && this.closedmap.getAt(successorLst[i].x, successorLst[i].y).r > 0) {
+              foundMatch = true;
+            }
+          }
+          if (foundMatch !== true) {
+            openLst.push(successorLst[i]);
+            if (successorLst[i].f > 0.0) {
+              this.openmap.setAt2(successorLst[i].x, successorLst[i].y, successorLst[i].f, successorLst[i].f, successorLst[i].f);
+            } else {
+              this.openmap.setAt2(successorLst[i].x, successorLst[i].y, 1, 1, 1);
+            }
+          }
+        }
+        if (q.f > 0.0) {
+          this.closedmap.setAt2(q.x, q.y, q.f, q.f, q.f);
+        } else {
+          this.closedmap.setAt2(q.x, q.y, 1.0, 1.0, 1.0);
+        }
+        successorLst = [];
+      }
 
       /*
-      counter = 0
-      while(openLst.length > 0)
-          console.log "loop..."
-          q = new SearchNode.SearchNode()
-          q = openLst.pop() #get last and remove
-          @openmap.setAt2(q.x, q.y, 0.0, 0.0, 0.0)
-          
-          console.log "(" + q.x + ", " + q.y + "): q.pixSum: " + q.pixSum + " q.pix: " + q.pix
-          
-          successorLst = this.getSuccessors(q)
-          console.log "looping \"for\" " + successorLst.length + " successors"
-          for i in [0...successorLst.length]
-              successorLst[i].g = q.g + this.calcLinearDistance(successorLst[i], q)
-              successorLst[i].h = this.calcManhattenDistance(successorLst[i], goal)
-              successorLst[i].f = successorLst[i].g + successorLst[i].h + successorLst[i].pixSum #FIXME: or ...->pix ???
-      
-               * TODO: Allow off-by-one check because of the diagonal and dual-linear-step method
-              if successorLst[i].x is goal.x && successorLst[i].y is goal.y
-                  lastNode = successorLst[i].clone()
-                  if @useDebugMode
-                      console.log('Found goal -- Bye!')
-                      console.log(toString() )
-                      #displayPath(successorLst[i])
-      
-                  this.updateMask(lastNode)
-      
-                  openLst = []
-                  #deallocateAll()
-                  return
-              
-              
-              foundMatch = false
-              if @openmap.getAt(successorLst[i].x, successorLst[i].y).r <= successorLst[i].f && @openmap.getAt(successorLst[i].x, successorLst[i].y).r > 0.0
-                  foundMatch = true
-              if foundMatch == false
-                  if @closedmap.getAt(successorLst[i].x, successorLst[i].y).r <= successorLst[i].f && @closedmap.getAt(successorLst[i].x, successorLst[i].y).r > 0
-                      foundMatch = true
-          
-              if foundMatch != true
-                  openLst.push(successorLst[i])
-                  if successorLst[i].f > 0.0
-                      @openmap.setAt2(successorLst[i].x, successorLst[i].y, successorLst[i].f, successorLst[i].f, successorLst[i].f)
-                  else
-                      @openmap.setAt2(successorLst[i].x, successorLst[i].y, 1, 1, 1)
-              #else
-               *    console.log "Match found; we are done!?!"
-      
-          if q.f > 0.0
-              @closedmap.setAt2(q.x, q.y, q.f, q.f, q.f)
-          else
-              @closedmap.setAt2(q.x, q.y, 1.0, 1.0, 1.0)
-      
-          successorLst = []    
-      #end of while(...)
+      fs = require('fs')
+      obj = JSON.parse(fs.readFileSync('./path.json', 'utf8'))
+      #console.log(obj)
+      for idx, val of obj.path
+          console.log val.y + ", " + val.x
+          @costmap.setAt2(val.y, val.x, 100, 0, 100)
        */
-      fs = require('fs');
-      obj = JSON.parse(fs.readFileSync('./path.json', 'utf8'));
-      ref = obj.path;
-      for (idx in ref) {
-        val = ref[idx];
-        console.log(val.y + ", " + val.x);
-        this.costmap.setAt2(val.y, val.x, 100, 0, 100);
-      }
-      return this.costmap.saveAsync('my_path.png');
+      this.costmap.saveAsync('AAAcostmap.png');
+      this.openmap.saveAsync('AAAopenmap.png');
+      return this.closedmap.saveAsync('AAAclosedmap.png');
     };
 
     AstarSearch.prototype.getMask = function() {

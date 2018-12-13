@@ -68,7 +68,27 @@ div.container {
     opacity: 0.80;
 }
 
-#boardDiv {
+#boardDiv1 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 825px;
+    height: 920px; /*90 * 15 = 1350*/
+}
+
+#boardDiv2 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 825px;
+    height: 920px; /*90 * 15 = 1350*/
+}
+
+#boardDiv3 {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;

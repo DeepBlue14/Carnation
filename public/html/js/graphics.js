@@ -34,6 +34,8 @@ var h;
 var sprite;
 var size;
 
+var pathIdx;
+
 //start the UI
 init();
 animate();
@@ -46,6 +48,10 @@ function init() {
 
     container = document.createElement('div');
     document.body.appendChild(container);
+
+    async(foo, function(){ 
+        console.log('async callback');
+    });
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 100000);
     camera.position.z = 2000;
@@ -194,3 +200,105 @@ function render() {
 
     renderer.render(scene, camera);
 }
+
+
+
+
+
+function async(fn, callback) {
+    console.log("async(...)");
+    setTimeout(function() {
+        //fn();
+        doStuff();
+        callback();
+        console.log("Bang!");
+    }, 0);
+}
+
+function foo() {
+    console.log("foo");
+}
+
+function doStuff() {
+    console.log("doStuff()");
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var img=document.getElementById("img1");
+    ctx.drawImage(img,0,0);
+
+    //Declare variables
+    var imgData = ctx.getImageData(0,0,c.width,c.height);
+    var data = imgData.data;
+
+    var red   = [];
+    var green = [];
+    var blue  = [];
+    var alpha = [];
+
+
+    //read path
+    loadJSON(function(response){
+        var actual_JSON = JSON.parse(response);
+        console.log(actual_JSON);
+        console.log(actual_JSON.path);
+        var pathArr = actual_JSON.path;
+        var path1D = [];
+        for(var i = 0; i < pathArr.length; i++)
+        {
+            //console.log(pathArr[i].x + " <> " + pathArr[i].y);
+            //path1D.push(pathIdx = (c.width * pathArr[i].y + pathArr[i].x) << 2);  //twoD2oneD row-major
+            path1D.push(pathIdx = (c.width * pathArr[i].x + pathArr[i].y) << 2);    //twoD2oneD column-major
+        }
+
+
+        //Read image and make changes on the fly as it's read
+        for(var i = 0; i < data.length; i += 4)
+        {
+            red[i] = imgData.data[i];
+            green[i] = imgData.data[i+1];
+            blue[i] = imgData.data[i+2]; // no change, blue == 0 for black and for yellow
+            alpha[i] = imgData.data[i+3]; // Again, no change
+
+            for(var j = 0; j < path1D.length; j++)
+            {
+                if(path1D[j] === i)
+                {
+                    red[i] = 100;
+                    green[i] = 0;
+                    blue[i] = 100;
+                    //console.log("update!");
+                }
+            }
+        }
+
+        // Write the image back to the canvas
+        for (var i = 0; i < data.length; i += 4)
+        {
+            imgData.data[i] = red[i];
+            imgData.data[i+1] = green[i];
+            imgData.data[i+2] = blue[i];
+            imgData.data[i+3] = alpha[i];
+        }
+
+
+        ctx.putImageData(imgData, 0, 0);
+
+
+
+    });
+}
+
+function loadJSON(callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'olsen_hall_floor3-301_302.json'/*'path.json'*/, false); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
+

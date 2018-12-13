@@ -16,11 +16,11 @@
 
   PNG = require('pngjs').PNG;
 
-  img1 = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png');
+  img1 = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png');
 
-  startPt = new Node2i.Node2i(520, 270);
+  startPt = new Node2i.Node2i(25, 25);
 
-  goalPt = new Node2i.Node2i(1700, 285);
+  goalPt = new Node2i.Node2i(1110, 1150);
 
   search = new AstarSearch.AstarSearch(img1, startPt, goalPt);
 

@@ -6,9 +6,9 @@ AstarSearch  = require './../src/search/AstarSearch.coffee'
 fs  = require('fs')
 PNG = require('pngjs').PNG
 
-img1 = new Image.Image('../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png')
-startPt = new Node2i.Node2i(520, 270)
-goalPt  = new Node2i.Node2i(1700, 285)
+img1 = new Image.Image('/home/james/CsProjects/CxxProjects/Agdl/AgdlCv/res/maze_inverted.png')
+startPt = new Node2i.Node2i(25, 25)
+goalPt  = new Node2i.Node2i(1110, 1150)
 search  = new AstarSearch.AstarSearch(img1, startPt, goalPt)
 
 n = new SearchNode.SearchNode(startPt.x, startPt.y, 0, 0, null)
