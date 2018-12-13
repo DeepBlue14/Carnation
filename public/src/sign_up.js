@@ -1,11 +1,13 @@
+var lastName, firstName, email, username, psw;
+
 function sign_up()
 {
     var isValid = false;
-    var lastName  = document.getElementById("last_name_input").value;
-    var firstName = document.getElementById("first_name_input").value;
-    var email     = document.getElementById("email_input").value;
-    var username  = document.getElementById("username_input").value;
-    var psw       = document.getElementById("psw_input").value;
+    lastName  = document.getElementById("last_name_input").value;
+    firstName = document.getElementById("first_name_input").value;
+    email     = document.getElementById("email_input").value;
+    username  = document.getElementById("username_input").value;
+    psw       = document.getElementById("psw_input").value;
     var pswRepeat = document.getElementById("psw_repeat_input").value;
 
     //https://stackoverflow.com/questions/12290572/appending-to-json-file-in-javascript
@@ -38,9 +40,18 @@ function sign_up()
     if(psw === pswRepeat)
     {
         //create account
+        writeJSON(function(response){
+            var actual_JSON = JSON.parse(response);
+            console.log(actual_JSON);
+            actual_JSON.users.push({firstName:"firstName",
+                lastName:"lastName",
+                email:"email",
+                username:"username",
+                password:"psw"});
+        });
     }
 
-    return true;
+    return false;//TODO: fix
 }
 
 function loadJSON(callback) {
@@ -55,4 +66,20 @@ function loadJSON(callback) {
         }
     };
     xobj.send(null);
+}
+
+
+function writeJSON(callback) {
+
+    function sendToServer(data) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:8000/" + data, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                ;//alert(xhr.responseText);
+            }
+        };
+        xhr.send();
+    }
+    sendToServer('firstName='+firstName+'=lastName='+lastName+'=email='+email+'=username='+username+'=password='+psw);
 }

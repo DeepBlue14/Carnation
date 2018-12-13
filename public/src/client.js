@@ -37,14 +37,14 @@ function launch_search()
         for(var i = 0; i < stageArr.length; i++)
         {
             console.log(stageArr[i].room + " <> " + startRoom);
-            if(stageArr[i].room == startRoom)
+            //if(stageArr[i].room == startRoom)
             {
                 console.log("Found start room: (" + stageArr[i].x + ", " + stageArr[i].y + ")");
                 startX = stageArr[i].x;
                 startY = stageArr[i].y;
                 foundStart = true;
             }
-            if(stageArr[i].room == goalRoom)
+            //if(stageArr[i].room == goalRoom)
             {
                 console.log("Found goal room: (" + stageArr[i].x + ", " + stageArr[i].y + ")");
                 goalX = stageArr[i].x;

@@ -1,4 +1,1 @@
-{"users": [{"firstName":"Jerry","lastName":"Negrell","email":"jerry@bah.com","username":"acadia","password":"asdf1" },
-           {"firstName":"Ed","lastName":"Snide","email":"edward@bah.com","username":"hokuyo","password":"asdf2" }
-    ]
-}
+{"users":[{"firstName":"Jerry","lastName":"Negrell","email":"jerry@bah.com","username":"acadia","password":"asdf1"},{"firstName":"Ed","lastName":"Snide","email":"edward@bah.com","username":"hokuyo","password":"asdf2"},{"firstName":"aaa","lastName":"aaa","email":"aaa","username":"aaa","password":"aaa"}]}
