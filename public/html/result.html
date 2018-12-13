@@ -26,23 +26,25 @@
     <body> <!-- style="background:url('res/image/space1.jpg')" -->
         <div class="container">
             <div id="boardDiv" class="container">
-                <div>
-
-                    <h3>Result</h3>
-
-                    <img id="img1" src="../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png" alt="path" style="display: none;">
+                <div id="block" class="row">
+                    <!-- <img id="img1" src="../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png" alt="path" style="display: none;"> -->
                     <canvas id="myCanvas" width="2000" height="1000" style="border:0px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
-                    <img src="../test/my_path.png" alt="path" style="display: none;">
-                    <img src="../test/my_path.png" alt="path" style="display: none;">
-                    <img src="../test/my_path.png" alt="path" style="display: none;">
-                    <img src="../test/my_path.png" alt="path" style="display: none;">
-
                 </div>
-                <script>
-
-                </script>
+                <!--
+                <div class="row">
+                    <img id="img2" src="../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor3.png" alt="path" style="display: none;">
+                    <canvas id="myCanvas2" width="2000" height="1000" style="border:0px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+                </div>
+                -->
             </div>
-
+            <script>
+                window.onload = function() {
+                    fast_snatch();
+                    //$(window).trigger('resize');
+                    init();
+                    animate();
+                };
+            </script>
             <!-- Javascript files:
                 - ajax
                 - jquery-ui
@@ -51,7 +53,7 @@
                 - THREE.js 3D graphics files
                 - my source files
             -->
-            <!-- <script src="js/lib/jquery/jquery.min.js"></script> -->
+            <script src="../node_modules/jquery/dist/jquery.min.js"></script>
             <!-- <script src="js/lib/jquery_ui/jquery-ui.min.js"></script> -->
             <script src="js/lib/three.js/three.js"></script>
             <script src="js/lib/three.js/Detector.js"></script>

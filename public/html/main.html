@@ -177,11 +177,11 @@
                 <!-- Options and activation -->
                 <div class="col-sm-4">
                     <h3>Go!</h3>
-                    <form id="starter" onsubmit="return launch_search()" method="get" action="loading.html">
-                        <input type="checkbox" name="option1" value="stairs" data-toggle='tooltip' data-placement='right' data-original-title="Don't use stairs" class='checkbox'>Avoid stairs<br>
-                        <input type="checkbox" name="option2" value="elevators" data-toggle='tooltip' data-placement='right' data-original-title="Don't use elevators" class='checkbox'>Avoid elevators<br>
-                        <input type="checkbox" name="option3" value="outdoors" data-toggle='tooltip' data-placement='right' data-original-title="Don't go outdoors" class='checkbox'>Avoid outdoors<br>
-                        <input type="checkbox" name="option4" value="simulation" data-toggle='tooltip' data-placement='right' data-original-title="Slower but more interesting" class='checkbox' checked>Display simulation<br><br>
+                    <form id="starter" onsubmit="return launch_search()" method="GET" action="loading.html">
+                        <input type="checkbox" name="option1" value="stairs" data-toggle='tooltip' data-placement='right' data-original-title="Don't use stairs" class='checkbox' disabled>Avoid stairs<br>
+                        <input type="checkbox" name="option2" value="elevators" data-toggle='tooltip' data-placement='right' data-original-title="Don't use elevators" class='checkbox' disabled>Avoid elevators<br>
+                        <input type="checkbox" name="option3" value="outdoors" data-toggle='tooltip' data-placement='right' data-original-title="Don't go outdoors" class='checkbox' disabled>Avoid outdoors<br>
+                        <input type="checkbox" name="option4" value="simulation" data-toggle='tooltip' data-placement='right' data-original-title="Slower but more interesting" class='checkbox' checked  disabled>Skip simulation<br><br>
                         <input type="submit" class="btn btn-success" value="Submit">
                     </form>
                 </div>
