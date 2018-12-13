@@ -38,7 +38,6 @@
         <script src="../node_modules/jquery-validation/dist/additional-methods.min.js"></script>
 
         <!-- Include my scripts -->
-        <script src="../src/client.js"></script>
         <script src="../src/loading.js"></script>
     </head>
     <body> <!-- style="background:url('res/image/space1.jpg')" -->
@@ -49,6 +48,14 @@
             <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
             <div class="col-sm" id="WebGLCanvas">
                 <script>
+
+
+                    //var parameters = location.search.substring(1).split("&");
+                    //console.log("params:= " + parameters);
+                    fast_snatch();
+
+
+
                     run_cube_animation("../");
                     console.log("asdf!!!");
                     var count = 0;
@@ -104,7 +111,7 @@
                     <div id="load_spiny" class="loader"></div>
                     <!-- Options and activation -->
                     <div class="col-sm-12">
-                        <form id="starter" onsubmit="return launch_search()" method="get" action="result.html">
+                        <form id="starter" onsubmit="return launch_r_search()" method="GET" action="result.html">
                             <input id="result22" type="submit" class="btn btn-success" value="Load my results!" style="visibility: hidden"> <!--  disabled -->
                         </form>
                     </div>

@@ -1,3 +1,5 @@
+"use strict";
+
 
 function launch_search()
 {
@@ -70,6 +72,65 @@ function launch_search()
         });
         */
 
+        /*
+        console.log("startTxt: " + startTxt);
+        console.log("startFloor: " + startFloor);
+        console.log("goalTxt: " + goalTxt);
+        console.log("goalFloor: " + goalFloor);
+        console.log("startRoom: " + startRoom);
+        console.log("goalRoom: " + goalRoom);
+         */
+
+        var form = document.getElementById("starter");
+        var input;
+
+        //Building (start)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "building_start";
+        input.value = startTxt;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
+
+        //Floor (start)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "floor_start";
+        input.value = startFloor;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
+
+        //Room (start)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "room_start";
+        input.value = startRoom;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
+
+        //Building (end)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "building_goal";
+        input.value = goalTxt;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
+
+        //Floor (end)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "floor_goal";
+        input.value = goalFloor;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
+
+        //Room (end)
+        input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "room_goal";
+        input.value = goalRoom;
+        form.appendChild(input);
+        form.appendChild(document.createElement("br") );
     }
 
     return isValid;

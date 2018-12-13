@@ -37,14 +37,51 @@ var size;
 var pathIdx;
 
 //start the UI
-init();
-animate();
+
+var newimg;
+
+
+var startTxt, startFloor, startRoom, goalTxt, goalFloor, goalRoom;
+
+function fast_snatch()
+{
+    var parameters = location.search.substring(1).split("&");
+    console.log("@loading.js::fastch_snatch() params:= " + parameters);
+    for(var i = 0; i < parameters.length; i++)
+    {
+        console.log("param:= " + parameters[i]);
+    }
+
+    var temp;
+    temp = parameters[0].split("=");
+    startTxt = unescape(temp[1]).replace("+", "");
+    temp = parameters[1].split("=");
+    startFloor = unescape(temp[1]);
+    temp = parameters[2].split("=");
+    startRoom = unescape(temp[1]);
+
+    temp = parameters[3].split("=");
+    goalTxt = unescape(temp[1]).replace("+", "");
+    temp = parameters[4].split("=");
+    goalFloor = unescape(temp[1]);
+    temp = parameters[5].split("=");
+    goalRoom = unescape(temp[1]);
+
+
+    console.log("t1:=" + startTxt + ", t2:=" + startFloor + ", t3:=" + startRoom);
+
+}
+
+
+
 
 /**
- * Initializes the 3D graphcs for the background objects and adds them
+ * Initializes the 3D graphics for the background objects and adds them
  * to the web page. 
  */
 function init() {
+    //fast_snatch(); // Load URL params
+    //document.getElementById("img1").src = "olsen_hall_floor1.png";
 
     container = document.createElement('div');
     document.body.appendChild(container);
@@ -223,69 +260,74 @@ function doStuff() {
     console.log("doStuff()");
     var c=document.getElementById("myCanvas");
     var ctx=c.getContext("2d");
-    var img=document.getElementById("img1");
-    ctx.drawImage(img,0,0);
 
-    //Declare variables
-    var imgData = ctx.getImageData(0,0,c.width,c.height);
-    var data = imgData.data;
+    var img = new Image();
+    img.onload = function() {
+        //var img=document.getElementById("img1");
+        ctx.drawImage(img, 0, 0);
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, 0, 150, 75);
 
-    var red   = [];
-    var green = [];
-    var blue  = [];
-    var alpha = [];
+        //////////////////////////////////
 
+        ///////////////////////////////////
 
-    //read path
-    loadJSON(function(response){
-        var actual_JSON = JSON.parse(response);
-        console.log(actual_JSON);
-        console.log(actual_JSON.path);
-        var pathArr = actual_JSON.path;
-        var path1D = [];
-        for(var i = 0; i < pathArr.length; i++)
-        {
-            //console.log(pathArr[i].x + " <> " + pathArr[i].y);
-            //path1D.push(pathIdx = (c.width * pathArr[i].y + pathArr[i].x) << 2);  //twoD2oneD row-major
-            path1D.push(pathIdx = (c.width * pathArr[i].x + pathArr[i].y) << 2);    //twoD2oneD column-major
-        }
+        //Declare variables
+        var imgData = ctx.getImageData(0, 0, c.width, c.height);
+        var data = imgData.data;
+
+        var red = [];
+        var green = [];
+        var blue = [];
+        var alpha = [];
 
 
-        //Read image and make changes on the fly as it's read
-        for(var i = 0; i < data.length; i += 4)
-        {
-            red[i] = imgData.data[i];
-            green[i] = imgData.data[i+1];
-            blue[i] = imgData.data[i+2]; // no change, blue == 0 for black and for yellow
-            alpha[i] = imgData.data[i+3]; // Again, no change
+        //read path
+        loadJSON(function (response) {
+            var actual_JSON = JSON.parse(response);
+            console.log(actual_JSON);
+            console.log(actual_JSON.path);
+            var pathArr = actual_JSON.path;
+            var path1D = [];
+            for (var i = 0; i < pathArr.length; i++) {
+                //console.log(pathArr[i].x + " <> " + pathArr[i].y);
+                //path1D.push(pathIdx = (c.width * pathArr[i].y + pathArr[i].x) << 2);  //twoD2oneD row-major
+                path1D.push(pathIdx = (c.width * pathArr[i].x + pathArr[i].y) << 2);    //twoD2oneD column-major
+            }
 
-            for(var j = 0; j < path1D.length; j++)
-            {
-                if(path1D[j] === i)
-                {
-                    red[i] = 100;
-                    green[i] = 0;
-                    blue[i] = 100;
-                    //console.log("update!");
+
+            //Read image and make changes on the fly as it's read
+            for (var i = 0; i < data.length; i += 4) {
+                red[i] = imgData.data[i];
+                green[i] = imgData.data[i + 1];
+                blue[i] = imgData.data[i + 2]; // no change, blue == 0 for black and for yellow
+                alpha[i] = imgData.data[i + 3]; // Again, no change
+
+                for (var j = 0; j < path1D.length; j++) {
+                    if (path1D[j] === i) {
+                        red[i] = 100;
+                        green[i] = 0;
+                        blue[i] = 100;
+                        //console.log("update!");
+                    }
                 }
             }
-        }
 
-        // Write the image back to the canvas
-        for (var i = 0; i < data.length; i += 4)
-        {
-            imgData.data[i] = red[i];
-            imgData.data[i+1] = green[i];
-            imgData.data[i+2] = blue[i];
-            imgData.data[i+3] = alpha[i];
-        }
+            // Write the image back to the canvas
+            for (var i = 0; i < data.length; i += 4) {
+                imgData.data[i] = red[i];
+                imgData.data[i + 1] = green[i];
+                imgData.data[i + 2] = blue[i];
+                imgData.data[i + 3] = alpha[i];
+            }
 
 
-        ctx.putImageData(imgData, 0, 0);
+            ctx.putImageData(imgData, 0, 0);
 
 
-
-    });
+        });
+    };
+    img.src = '../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor1.png';
 }
 
 function loadJSON(callback) {
