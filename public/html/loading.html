@@ -39,7 +39,7 @@
 
         <!-- Include my scripts -->
         <script src="../src/client.js"></script>
-        <script src="../src/cube_animation.js"></script>
+        <script src="../src/loading.js"></script>
     </head>
     <body> <!-- style="background:url('res/image/space1.jpg')" -->
 
@@ -49,7 +49,10 @@
             <!-- <img src="res/image/marigold_icon.png" alt="logo" width="124" height="124"> -->
             <div class="col-sm" id="WebGLCanvas">
                 <script>
-                    run_cube_animation("../")
+                    run_cube_animation("../");
+                    console.log("asdf!!!");
+                    var count = 0;
+                    //while(count++ < 500000) {console.log(".")}
                 </script>
             </div>
             <p>Path-planning with a known map</p>
@@ -100,26 +103,11 @@
                     </style>
                     <div id="load_spiny" class="loader"></div>
                     <!-- Options and activation -->
-                    <div class="col-sm-4">
-                        <h3>Go!</h3>
+                    <div class="col-sm-12">
                         <form id="starter" onsubmit="return launch_search()" method="get" action="result.html">
-                            <input id="result22" type="submit" class="btn btn-success" value="Submit"> <!--  disabled --
+                            <input id="result22" type="submit" class="btn btn-success" value="Load my results!" style="visibility: hidden"> <!--  disabled -->
                         </form>
                     </div>
-
-
-                    <script>
-                        //TODO: run A*, then
-                        /*
-                        var elem = document.getElementById('result22');
-                        elem.disabled = false;
-                        elem = document.getElementById('load_spiny');
-                        elem.remove();
-                        elem = document.getElementById('loading_status');
-                        elem.innerText = 'Done!';
-                        */
-
-                    </script>
                 </div>
                 </div>
             </div>

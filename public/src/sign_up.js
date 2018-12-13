@@ -40,7 +40,7 @@ function sign_up()
         //create account
     }
 
-    return false;
+    return true;
 }
 
 function loadJSON(callback) {
