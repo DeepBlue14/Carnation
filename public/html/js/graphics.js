@@ -239,9 +239,6 @@ function render() {
 }
 
 
-
-
-
 function async(fn, callback) {
     console.log("async(...)");
     setTimeout(function() {
@@ -265,8 +262,6 @@ function doStuff() {
     img.onload = function() {
         //var img=document.getElementById("img1");
         ctx.drawImage(img, 0, 0);
-        ctx.fillStyle = "#FF0000";
-        ctx.fillRect(0, 0, 150, 75);
 
         //////////////////////////////////
 
@@ -327,14 +322,17 @@ function doStuff() {
 
         });
     };
-    img.src = '../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor1.png';
+    //img.src = '../res/arc/UMassLowell/North/OlsenHall/olsen_hall_floor1.png';
+    console.log('../res/arc/UMassLowell/North/'+startTxt+'/olsen_hall_floor'+startFloor+'.png');
+    img.src = '../res/arc/UMassLowell/North/'+startTxt+'/olsen_hall_floor'+startFloor+'.png';
 }
 
 function loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'olsen_hall_floor3-301_302.json'/*'path.json'*/, false); // Replace 'my_data' with the path to your file
+    console.log('../res/arc/UMassLowell/North/'+startTxt+'/json/olsen_hall_floor'+startFloor+'-'+startRoom+'_'+goalRoom+'.json');
+    xobj.open('GET', '../res/arc/UMassLowell/North/'+startTxt+'/json/olsen_hall_floor'+startFloor+'-'+startRoom+'_'+goalRoom+'.json'/*'path.json'*/, false); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
