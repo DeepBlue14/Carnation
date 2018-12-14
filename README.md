@@ -74,3 +74,5 @@ This work is a class project guided by Dr. Haim Levkowitz.
 [2]: http://www.uml.edu/
 [3]: http://www.ros.org/
 [4]: http://www.cs.uml.edu/~jkuczyns/513_f2018/Carnation/public/index.html
+[5]: http://weblab.cs.uml.edu/~jkuczyns/513_f2018/Carnation/
+[6]: http://weblab.cs.uml.edu/~jkuczyns/513_f2018/Carnation/public/index.html
