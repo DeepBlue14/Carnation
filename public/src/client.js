@@ -24,7 +24,7 @@ function launch_search()
 
     if(startTxt != "Olsen Hall" || goalTxt != "Olsen Hall")
     {
-        alert("Since the floorplans do not contain clear room numbers\nthese had to be manually added.  As a result, please use the third floor of Olsen Hall");
+        alert("Since the floorplans do not contain clear room numbers\nthese had to be manually added.  As a result, please use the third floor of Olsen Hall, rooms 301-318");
         return false;
     }
 
