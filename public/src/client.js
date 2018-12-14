@@ -15,7 +15,18 @@ function launch_search()
     var startRoom = document.getElementById("start_room_number").value;
     var goalRoom = document.getElementById("goal_room_number").value;
 
+    if(startRoom > goalRoom)
+    {
+        var tmp = goalRoom;
+        goalRoom = startRoom;
+        startRoom = tmp;
+    }
 
+    if(startTxt != "Olsen Hall" || goalTxt != "Olsen Hall")
+    {
+        alert("Since the floorplans do not contain clear room numbers\nthese had to be manually added.  As a result, please use the third floor of Olsen Hall");
+        return false;
+    }
 
     console.log("startTxt: " + startTxt);
     console.log("startFloor: " + startFloor);
