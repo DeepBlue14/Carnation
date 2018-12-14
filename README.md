@@ -51,9 +51,15 @@ Many of the data structures used where inspired by [ROS][3].
 
 
 ### **Install & Run**
+First, install NodeJS and NPM.  Then
 ```
-npm install --save Carnation
-npm install pngjs --save
+git clone https://github.com/DeepBlue14/Carnation.git
+npm i coffee-script
+```
+
+To run tests, ```cd``` to the tests directory, and run
+```
+coffee [filename].coffee
 ```
 
 
@@ -67,4 +73,4 @@ This work is a class project guided by Dr. Haim Levkowitz.
 [1]: http://robotics.cs.uml.edu/
 [2]: http://www.uml.edu/
 [3]: http://www.ros.org/
-[4]: http://www.cs.uml.edu/~jkuczyns/513_f2018/Carnation/index.html
+[4]: http://www.cs.uml.edu/~jkuczyns/513_f2018/Carnation/public/index.html
